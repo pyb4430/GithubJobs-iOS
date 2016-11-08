@@ -11,22 +11,16 @@ import UIKit
 class JobTableViewController: UITableViewController {
     
     var jobArray = [Job]()
-    var jobSelected: Job!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-        
-        //jobArray.append(Job(title: "testTitle", company: "testCompany", companyLogoUrl: ""))
-        
+
         func setDataFunction(data: Array<Job>) {
-            //print("set the data " + data[0].title)
             self.jobArray = data
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 self.tableView.reloadData()
             }
-            
         }
         
         let apiManager: GithubApiManager = GithubApiManager()
@@ -91,11 +85,6 @@ class JobTableViewController: UITableViewController {
         }
     }
     
-
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        jobSelected = jobArray[indexPath.row]
-    }
-
     
     /*
     // Override to support conditional editing of the table view.

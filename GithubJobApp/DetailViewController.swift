@@ -37,7 +37,7 @@ class DetailViewController: UIViewController {
             data: job.description.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
             options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
             documentAttributes: nil)
-        let myAttribute = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 8.0)! ]
+        let myAttribute = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 10.0)! ]
         
         attrStr.addAttributes(myAttribute, range: NSMakeRange(0, attrStr.length))
         
