@@ -10,7 +10,7 @@ import Foundation
 
 class GithubApiManager {
     
-    let jobsUrl: String = "https://jobs.github.com/positions.json?description=python"
+    let jobsUrl: String = "https://jobs.github.com/positions.json?description=swift&location=San+Francisco"
     
     var jobTitles = [String]()
     var jobCompanies = [String]()

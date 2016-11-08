@@ -44,6 +44,7 @@ class DetailViewController: UIViewController {
         company.text = job.company
         jobTitle.text = job.title
         jobDescriptionScroll.attributedText = attrStr
+        jobDescriptionScroll.setContentOffset(CGPointZero, animated: false)
     }
     
 }
