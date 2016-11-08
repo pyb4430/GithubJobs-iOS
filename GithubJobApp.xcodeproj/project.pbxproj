@@ -14,6 +14,11 @@
 		34C714121DC6E8F600D707E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C714101DC6E8F600D707E8 /* LaunchScreen.storyboard */; };
 		34C7141D1DC6E8F600D707E8 /* GithubJobAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7141C1DC6E8F600D707E8 /* GithubJobAppTests.swift */; };
 		34C714281DC6E8F600D707E8 /* GithubJobAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C714271DC6E8F600D707E8 /* GithubJobAppUITests.swift */; };
+		34C714361DC6E90E00D707E8 /* GithubApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C714351DC6E90E00D707E8 /* GithubApiManager.swift */; };
+		34C714381DC826A500D707E8 /* JobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C714371DC826A500D707E8 /* JobTableViewController.swift */; };
+		34C7143A1DC826EE00D707E8 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C714391DC826EE00D707E8 /* Job.swift */; };
+		34C7143C1DC8340100D707E8 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7143B1DC8340100D707E8 /* JobTableViewCell.swift */; };
+		34F2086D1DCE4CAA00ED88E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		34C714231DC6E8F600D707E8 /* GithubJobAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubJobAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C714271DC6E8F600D707E8 /* GithubJobAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubJobAppUITests.swift; sourceTree = "<group>"; };
 		34C714291DC6E8F600D707E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34C714351DC6E90E00D707E8 /* GithubApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubApiManager.swift; sourceTree = "<group>"; };
+		34C714371DC826A500D707E8 /* JobTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewController.swift; sourceTree = "<group>"; };
+		34C714391DC826EE00D707E8 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		34C7143B1DC8340100D707E8 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
+		34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,11 @@
 				34C7140E1DC6E8F600D707E8 /* Assets.xcassets */,
 				34C714101DC6E8F600D707E8 /* LaunchScreen.storyboard */,
 				34C714131DC6E8F600D707E8 /* Info.plist */,
+				34C714351DC6E90E00D707E8 /* GithubApiManager.swift */,
+				34C714371DC826A500D707E8 /* JobTableViewController.swift */,
+				34C714391DC826EE00D707E8 /* Job.swift */,
+				34C7143B1DC8340100D707E8 /* JobTableViewCell.swift */,
+				34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */,
 			);
 			path = GithubJobApp;
 			sourceTree = "<group>";
@@ -257,7 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C7140A1DC6E8F600D707E8 /* ViewController.swift in Sources */,
+				34C714381DC826A500D707E8 /* JobTableViewController.swift in Sources */,
 				34C714081DC6E8F600D707E8 /* AppDelegate.swift in Sources */,
+				34C7143C1DC8340100D707E8 /* JobTableViewCell.swift in Sources */,
+				34C714361DC6E90E00D707E8 /* GithubApiManager.swift in Sources */,
+				34C7143A1DC826EE00D707E8 /* Job.swift in Sources */,
+				34F2086D1DCE4CAA00ED88E4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +504,7 @@
 				34C7142E1DC6E8F600D707E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34C7142F1DC6E8F600D707E8 /* Build configuration list for PBXNativeTarget "GithubJobAppTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +513,7 @@
 				34C714311DC6E8F600D707E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34C714321DC6E8F600D707E8 /* Build configuration list for PBXNativeTarget "GithubJobAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +522,7 @@
 				34C714341DC6E8F600D707E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

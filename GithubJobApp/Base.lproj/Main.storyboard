@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2009" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5VO-tg-3G6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,6 +22,138 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="320" y="-376"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Jj0-Ry-j0z">
+            <objects>
+                <viewController id="q8b-jA-j1N" customClass="DetailViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fdo-Be-7x8"/>
+                        <viewControllerLayoutGuide type="bottom" id="zlO-Q7-RYJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dfU-jA-oI9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDc-CW-BI3">
+                                <rect key="frame" x="20" y="111" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMe-xa-zWL">
+                                <rect key="frame" x="20" y="140" width="560" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BJ-8M-WXj">
+                                <rect key="frame" x="20" y="82" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LMe-xa-zWL" secondAttribute="trailing" constant="20" id="0Zq-PY-wY2"/>
+                            <constraint firstItem="LMe-xa-zWL" firstAttribute="top" secondItem="FDc-CW-BI3" secondAttribute="bottom" constant="20" id="9We-bQ-Z8k"/>
+                            <constraint firstItem="FDc-CW-BI3" firstAttribute="leading" secondItem="dfU-jA-oI9" secondAttribute="leadingMargin" constant="20" id="IMp-97-pGi"/>
+                            <constraint firstItem="LMe-xa-zWL" firstAttribute="leading" secondItem="dfU-jA-oI9" secondAttribute="leading" constant="20" id="OB5-BP-4ru"/>
+                            <constraint firstItem="8BJ-8M-WXj" firstAttribute="leading" secondItem="dfU-jA-oI9" secondAttribute="leadingMargin" constant="20" id="R4H-iX-8CN"/>
+                            <constraint firstItem="zlO-Q7-RYJ" firstAttribute="top" secondItem="LMe-xa-zWL" secondAttribute="bottom" constant="20" id="vdS-1N-U6K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="company" destination="FDc-CW-BI3" id="XKM-Zh-cEc"/>
+                        <outlet property="jobDescriptionScroll" destination="LMe-xa-zWL" id="I4S-CL-SGn"/>
+                        <outlet property="jobTitle" destination="8BJ-8M-WXj" id="aQD-u5-bbL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfe-fg-Tb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="95"/>
+        </scene>
+        <!--Job Feed-->
+        <scene sceneID="KIg-si-QHV">
+            <objects>
+                <tableViewController id="R0T-Cu-Qs1" customClass="JobTableViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="ybz-II-NYu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="JobTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobTableViewCell" rowHeight="120" id="u4a-CB-sEf" userLabel="reuseIdentifier" customClass="JobTableViewCell" customModule="GithubJobApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u4a-CB-sEf" id="R65-GQ-Rq4">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="xn2-pC-sNK">
+                                            <rect key="frame" x="119" y="8" width="473" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="h6Q-v9-2eR">
+                                            <rect key="frame" x="119" y="30" width="473" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5H6-tl-clZ">
+                                            <rect key="frame" x="8" y="0.0" width="103" height="103"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xn2-pC-sNK" firstAttribute="trailing" secondItem="R65-GQ-Rq4" secondAttribute="trailingMargin" constant="20" id="IbC-Rl-fYb"/>
+                                        <constraint firstItem="h6Q-v9-2eR" firstAttribute="trailing" secondItem="R65-GQ-Rq4" secondAttribute="trailingMargin" constant="20" id="VYz-0j-tiA"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="JobTableViewCell">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <outlet property="company" destination="xn2-pC-sNK" id="FE4-eE-eYd"/>
+                                    <outlet property="companyLogo" destination="5H6-tl-clZ" id="dM5-9D-j3T"/>
+                                    <outlet property="title" destination="h6Q-v9-2eR" id="Ghu-De-TM0"/>
+                                    <segue destination="q8b-jA-j1N" kind="show" identifier="Detail View" id="qPq-4Y-4CN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="R0T-Cu-Qs1" id="A7V-Tj-MPO"/>
+                            <outlet property="delegate" destination="R0T-Cu-Qs1" id="oNL-Gl-wK2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Job Feed" id="1Ga-hx-bCY"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfj-W1-nkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="320" y="294"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z7F-UV-A5f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5VO-tg-3G6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="InV-0K-1nk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R0T-Cu-Qs1" kind="relationship" relationship="rootViewController" id="geA-hR-fDE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9T-HO-r3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-492" y="294"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo_placeholder" width="420" height="420"/>
+    </resources>
 </document>
