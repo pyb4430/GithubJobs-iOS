@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var company: UILabel!
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var jobDescriptionScroll: UITextView!
+    @IBOutlet weak var companyUrl: UILabel!
     
     // MARK: Properties
 
@@ -26,7 +27,6 @@ class DetailViewController: UIViewController {
     
 
     required init?(coder aDecoder: NSCoder) {
-        job = Job(title: "", company: "", description: "", companyLogoUrl: "")
         super.init(coder: aDecoder)
     }
     
@@ -48,6 +48,9 @@ class DetailViewController: UIViewController {
         jobTitle.text = actualJob.title
         jobDescriptionScroll.attributedText = attrStr
         jobDescriptionScroll.setContentOffset(CGPointZero, animated: false)
+        companyUrl.text = actualJob.companyUrl
+        
     }
+    
     
 }

@@ -9,15 +9,17 @@
 import Foundation
 
 struct Job {
-    var company: String
-    var title: String
-    var companyLogoUrl: String?
-    var description: String
+    let company: String
+    let title: String
+    let companyLogoUrl: String?
+    let companyUrl: String?
+    let description: String
     
-    init(title: String, company: String, description: String, companyLogoUrl: String? = nil) {
+    init(title: String, company: String, description: String, companyLogoUrl: String? = nil, companyUrl: String? = nil) {
         self.company = company
         self.title = title
         self.companyLogoUrl = companyLogoUrl
         self.description = description
+        self.companyUrl = companyUrl
     }
 }

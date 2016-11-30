@@ -40,8 +40,9 @@ struct GithubApiManager {
                         continue
                     }
                     let companyLogoUrl = jobsJson["company_logo"] as? String
+                    let companyUrl = jobsJson["company_url"] as? String
                     // Can remove the check for nil because the Job has an optional companyLogoUrl variable
-                    jobArray.append(Job(title: title, company: company, description: description, companyLogoUrl: companyLogoUrl))
+                    jobArray.append(Job(title: title, company: company, description: description, companyLogoUrl: companyLogoUrl, companyUrl: companyUrl))
                     
         //                if(companyLogoUrl != nil) {
         //                    jobArray.append(Job(title: title, company: company, description: description, companyLogoUrl:companyLogoUrl))
