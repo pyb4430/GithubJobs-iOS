@@ -52,5 +52,11 @@ class DetailViewController: UIViewController {
         
     }
     
+    @IBAction func handleUrlClick(recognizer: UITapGestureRecognizer) {
+        if let actualJob = job, let actualCompanyUrl = actualJob.companyUrl, let companyNSURL = NSURL(string: actualCompanyUrl){
+            UIApplication.sharedApplication().openURL(companyNSURL)
+        }
+    }
+    
     
 }
