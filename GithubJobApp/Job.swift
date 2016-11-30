@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Job {
+struct Job {
     var company: String
     var title: String
-    var companyLogoUrl: String
+    var companyLogoUrl: String?
     var description: String
     
-    init(title: String, company: String, description: String, companyLogoUrl: String) {
+    init(title: String, company: String, description: String, companyLogoUrl: String? = nil) {
         self.company = company
         self.title = title
         self.companyLogoUrl = companyLogoUrl

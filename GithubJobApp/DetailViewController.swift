@@ -16,10 +16,10 @@ class DetailViewController: UIViewController {
     
     // MARK: Properties
 
-    var job: Job
+    var job: Job?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        job = Job(title: "", company: "", description: "", companyLogoUrl: "")
+        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -33,16 +33,19 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let actualJob = job else {
+            return
+        }
         let attrStr = try! NSMutableAttributedString(
-            data: job.description.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+            data: actualJob.description.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
             options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
             documentAttributes: nil)
         let myAttribute = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 10.0)! ]
         
         attrStr.addAttributes(myAttribute, range: NSMakeRange(0, attrStr.length))
         
-        company.text = job.company
-        jobTitle.text = job.title
+        company.text = actualJob.company
+        jobTitle.text = actualJob.title
         jobDescriptionScroll.attributedText = attrStr
         jobDescriptionScroll.setContentOffset(CGPointZero, animated: false)
     }

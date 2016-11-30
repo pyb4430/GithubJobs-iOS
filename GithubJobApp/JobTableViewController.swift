@@ -11,21 +11,19 @@ import UIKit
 class JobTableViewController: UITableViewController {
     
     var jobArray = [Job]()
+    var companyLogoCache = NSCache()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        func setDataFunction(data: Array<Job>) {
+        let apiManager: GithubApiManager = GithubApiManager()
+        apiManager.getJobs() {(data) in
             self.jobArray = data
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 self.tableView.reloadData()
             }
         }
         
-        let apiManager: GithubApiManager = GithubApiManager()
-        apiManager.getJobs(setDataFunction)
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -52,28 +50,47 @@ class JobTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("JobTableViewCell", forIndexPath: indexPath) as? JobTableViewCell
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("JobTableViewCell", forIndexPath: indexPath) as? JobTableViewCell else {
+            return UITableViewCell()
+        }
 
         // Configure the cell...
         let job = jobArray[indexPath.row]
 
-        cell?.company.text = job.company
-        cell?.title.text = job.title
-        (cell?.companyLogo as! UIImageView).contentMode = UIViewContentMode.ScaleAspectFit
-        let imgUrl: NSURL = NSURL(string: job.companyLogoUrl)!
-        let task = NSURLSession.sharedSession().dataTaskWithURL(imgUrl) {(data, response, error) in
-            if error == nil {
-                dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    (cell?.companyLogo as! UIImageView).image = UIImage(data: data!)
-                }
+        cell.company.text = job.company
+        cell.title.text = job.title
+        let logoImageView = cell.companyLogo as! UIImageView
+        logoImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        
+        if let actualCompanyLogoUrl = job.companyLogoUrl {
+            if self.companyLogoCache.objectForKey(actualCompanyLogoUrl) != nil, let logoAnyObject = companyLogoCache.objectForKey(actualCompanyLogoUrl), let logoImg = logoAnyObject as? UIImage {
+                print("using cached image")
+                logoImageView.image = logoImg
             } else {
-                dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    (cell?.companyLogo as! UIImageView).image = UIImage(named: "logo_placeholder")
+                print("actualCompanyLogoUrl: " + actualCompanyLogoUrl + "\n")
+                
+                if let imgUrl = NSURL(string: actualCompanyLogoUrl) {
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(imgUrl) {(data, response, error) in
+                        if error == nil {
+                            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                                logoImageView.image = UIImage(data: data!)
+                                self.companyLogoCache.setObject(logoImageView.image!, forKey: actualCompanyLogoUrl as AnyObject)
+                            }
+                        } else {
+                            print("error: \(error!) \n")
+                            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                                logoImageView.image = UIImage(named: "logo_placeholder")
+                                
+                            }
+                        }
+                    }
+                    task.resume()
                 }
             }
         }
-        task.resume()
-        return cell!
+        return cell
+        
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -85,6 +102,9 @@ class JobTableViewController: UITableViewController {
         }
     }
     
+    deinit {
+        companyLogoCache.removeAllObjects()
+    }
     
     /*
     // Override to support conditional editing of the table view.
