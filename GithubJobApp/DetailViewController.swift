@@ -20,11 +20,8 @@ class DetailViewController: UIViewController {
     var job: Job?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    
-    
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -33,16 +30,17 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let actualJob = job else {
+        guard let actualJob = job, let mutableStringData = actualJob.description.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true), let attrStr = try? NSMutableAttributedString(
+            data: mutableStringData,
+            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+            documentAttributes: nil) else{
             return
         }
-        let attrStr = try! NSMutableAttributedString(
-            data: actualJob.description.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
-            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-            documentAttributes: nil)
-        let myAttribute = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 10.0)! ]
         
-        attrStr.addAttributes(myAttribute, range: NSMakeRange(0, attrStr.length))
+        if let uiFont = UIFont(name: "Helvetica", size: 10.0) {
+            let myAttribute = [ NSFontAttributeName: uiFont]
+            attrStr.addAttributes(myAttribute, range: NSMakeRange(0, attrStr.length))
+        }
         
         company.text = actualJob.company
         jobTitle.text = actualJob.title
@@ -57,6 +55,4 @@ class DetailViewController: UIViewController {
             UIApplication.sharedApplication().openURL(companyNSURL)
         }
     }
-    
-    
 }

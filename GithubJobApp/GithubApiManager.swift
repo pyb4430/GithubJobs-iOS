@@ -19,12 +19,16 @@ struct GithubApiManager {
     func getJobs(setDataFunction: (Array<Job>) -> Void){
         if let url = NSURL(string: jobsUrl) {
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
-            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+            if let actualData = data { print(NSString(data: actualData, encoding: NSUTF8StringEncoding)) }
             
             var jobArray = [Job]()
             var json: Array<AnyObject>?
             do {
-                json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? Array<AnyObject>
+                guard let actualData = data else {
+                    print("error: data recieved is invalid")
+                    return
+                }
+                json = try NSJSONSerialization.JSONObjectWithData(actualData, options: NSJSONReadingOptions()) as? Array<AnyObject>
             } catch {
                 print(error)
             }

@@ -74,11 +74,13 @@ class JobTableViewController: UITableViewController {
                     let task = NSURLSession.sharedSession().dataTaskWithURL(imgUrl) {(data, response, error) in
                         if error == nil {
                             dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                                logoImageView.image = UIImage(data: data!)
-                                self.companyLogoCache.setObject(logoImageView.image!, forKey: actualCompanyLogoUrl as AnyObject)
+                                if let actualData = data, logoImage = UIImage(data: actualData) {
+                                    logoImageView.image = logoImage
+                                    self.companyLogoCache.setObject(logoImage, forKey: actualCompanyLogoUrl as AnyObject)
+                                }
                             }
                         } else {
-                            print("error: \(error!) \n")
+                            if let actualError = error { print("error: \(actualError) \n") }
                             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                                 logoImageView.image = UIImage(named: "logo_placeholder")
                                 
