@@ -15,22 +15,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var jobDescriptionScroll: UITextView!
     @IBOutlet weak var companyUrl: UILabel!
     
-    // MARK: Properties
-
     var job: Job?
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let actualJob = job, let mutableStringData = actualJob.description.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true), let attrStr = try? NSMutableAttributedString(
+        guard let job = job, let mutableStringData = job.description.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true), let attrStr = try? NSMutableAttributedString(
             data: mutableStringData,
             options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
             documentAttributes: nil) else{
@@ -42,16 +32,15 @@ class DetailViewController: UIViewController {
             attrStr.addAttributes(myAttribute, range: NSMakeRange(0, attrStr.length))
         }
         
-        company.text = actualJob.company
-        jobTitle.text = actualJob.title
+        company.text = job.company
+        jobTitle.text = job.title
         jobDescriptionScroll.attributedText = attrStr
         jobDescriptionScroll.setContentOffset(CGPointZero, animated: false)
-        companyUrl.text = actualJob.companyUrl
-        
+        companyUrl.text = job.companyUrl
     }
     
     @IBAction func handleUrlClick(recognizer: UITapGestureRecognizer) {
-        if let actualJob = job, let actualCompanyUrl = actualJob.companyUrl, let companyNSURL = NSURL(string: actualCompanyUrl){
+        if let job = job, let companyUrl = job.companyUrl, let companyNSURL = NSURL(string: companyUrl){
             UIApplication.sharedApplication().openURL(companyNSURL)
         }
     }

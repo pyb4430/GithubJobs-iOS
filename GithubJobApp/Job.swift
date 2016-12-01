@@ -15,11 +15,11 @@ struct Job {
     let companyUrl: String?
     let description: String
     
-    init(title: String, company: String, description: String, companyLogoUrl: String? = nil, companyUrl: String? = nil) {
-        self.company = company
-        self.title = title
-        self.companyLogoUrl = companyLogoUrl
-        self.description = description
-        self.companyUrl = companyUrl
+    init(jsonJobDictionary: [String: AnyObject]) {
+        company = jsonJobDictionary["company"] as? String ?? ""
+        title = jsonJobDictionary["title"] as? String ?? ""
+        description = jsonJobDictionary["description"] as? String ?? ""
+        companyLogoUrl = jsonJobDictionary["company_logo"] as? String
+        companyUrl = jsonJobDictionary["company_url"] as? String
     }
 }
