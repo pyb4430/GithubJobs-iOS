@@ -17,7 +17,6 @@ class UINetImageView: UIImageView {
         if let imgUrl = NSURL(string: url) {
             let task = NSURLSession.sharedSession().dataTaskWithURL(imgUrl) {(data, response, error) in
                 if error == nil {
-                    print("image data valid")
                     dispatch_async(dispatch_get_main_queue()) { () -> Void in
                         if let data = data, logoImage = UIImage(data: data) {
                             self.image = logoImage

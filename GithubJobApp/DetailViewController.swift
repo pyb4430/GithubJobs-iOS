@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var jobDescription: UILabel!
@@ -14,34 +15,27 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var jobDescriptionScroll: UITextView!
     @IBOutlet weak var companyUrl: UILabel!
-    
+
     var job: Job?
+    @IBOutlet weak var jobDescriptionDetails: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let job = job, let mutableStringData = job.description.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true), let attrStr = try? NSMutableAttributedString(
-            data: mutableStringData,
-            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-            documentAttributes: nil) else{
+        guard let job = job else {
             return
-        }
-        
-        if let uiFont = UIFont(name: "Helvetica", size: 10.0) {
-            let myAttribute = [ NSFontAttributeName: uiFont]
-            attrStr.addAttributes(myAttribute, range: NSMakeRange(0, attrStr.length))
         }
         
         company.text = job.company
         jobTitle.text = job.title
-        jobDescriptionScroll.attributedText = attrStr
-        jobDescriptionScroll.setContentOffset(CGPointZero, animated: false)
+        jobDescriptionDetails.loadHTMLString(job.description, baseURL: nil)
         companyUrl.text = job.companyUrl
     }
     
     @IBAction func handleUrlClick(recognizer: UITapGestureRecognizer) {
-        if let job = job, let companyUrl = job.companyUrl, let companyNSURL = NSURL(string: companyUrl){
-            UIApplication.sharedApplication().openURL(companyNSURL)
+        if let url = job?.companyUrl, let nsUrl = NSURL(string: url){
+            let svc = SFSafariViewController(URL: nsUrl)
+            self.presentViewController(svc, animated: true, completion: nil)
         }
     }
 }
