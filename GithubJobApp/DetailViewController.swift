@@ -13,7 +13,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var jobDescription: UILabel!
     @IBOutlet weak var company: UILabel!
     @IBOutlet weak var jobTitle: UILabel!
-    @IBOutlet weak var jobDescriptionScroll: UITextView!
     @IBOutlet weak var companyUrl: UILabel!
 
     var job: Job?
@@ -28,13 +27,13 @@ class DetailViewController: UIViewController {
         
         company.text = job.company
         jobTitle.text = job.title
-        jobDescriptionDetails.loadHTMLString(job.description, baseURL: nil)
-        companyUrl.text = job.companyUrl
+        jobDescriptionDetails.loadHTMLString(job.jobDescription, baseURL: nil)
+        companyUrl.text = job.rawCompanyUrl
     }
     
     @IBAction func handleUrlClick(recognizer: UITapGestureRecognizer) {
-        if let url = job?.companyUrl, let nsUrl = NSURL(string: url){
-            let svc = SFSafariViewController(URL: nsUrl)
+        if let url = job?.companyUrl {
+            let svc = SFSafariViewController(URL: url)
             self.presentViewController(svc, animated: true, completion: nil)
         }
     }

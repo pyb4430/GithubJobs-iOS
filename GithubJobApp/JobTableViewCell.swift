@@ -12,7 +12,7 @@ class JobTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var company: UILabel!    
-    @IBOutlet weak var companyLogo: UINetImageView!
+    @IBOutlet weak var companyLogo: UIImageView!
     @IBOutlet weak var title: UILabel!
     
     var job: Job? {
@@ -20,7 +20,9 @@ class JobTableViewCell: UITableViewCell {
             guard let job = job else { return }
             company.text = job.company
             title.text = job.title
-            if let companyLogoUrl = job.companyLogoUrl { companyLogo.setImgFromUrl(companyLogoUrl) }
+            if let companyLogoUrl = job.companyLogoUrl {
+                companyLogo.setImgFromUrl(companyLogoUrl)
+            }
         }
     }
 }

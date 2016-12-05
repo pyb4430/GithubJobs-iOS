@@ -8,19 +8,37 @@
 
 import UIKit
 
-class JobTableViewController: UITableViewController {
+class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearchBarDelegate {
     
     var jobArray = [Job]()
     var companyLogoCache = NSCache()
+    
+    var apiManager: GithubApiManager?
+    var searchBar: UISearchBar?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let apiManager: GithubApiManager = GithubApiManager()
-        apiManager.getJobs() {(data) in
-            self.jobArray = data
-            self.tableView.reloadData()
+        apiManager = GithubApiManager()
+        apiManager?.githubAPIDelegate = self
+        
+        searchBar?.delegate = self
+        loadJobs() {jobs in
+            if let jobs = jobs {
+                self.jobsRetrieved(jobs)
+            }
+            self.searchBar?.text = NSUserDefaults.standardUserDefaults().stringForKey(GithubApiManager.SearchQueryUserDefaultKey)
         }
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+//        apiManager?.getJobsFromAPI(searchQuery: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        apiManager?.getJobs(searchQuery: searchBar.text!)
+        searchBar.endEditing(false)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -43,8 +61,36 @@ class JobTableViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let detailViewController = segue.destinationViewController as? DetailViewController,
-            let row = self.tableView.indexPathForSelectedRow {
-            detailViewController.job = jobArray[row.row]
+            let indexPath = self.tableView.indexPathForSelectedRow {
+            detailViewController.job = jobArray[indexPath.row]
+        }
+    }
+    
+    func jobsRetrieved(jobs: [Job]) {
+        jobArray = jobs
+        tableView.reloadData()
+        saveJobs()
+    }
+    
+    // MARK: NSCoding
+    
+    func saveJobs() {
+        dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.jobArray, toFile: Job.ArchiveURL!.path!)
+            if !isSuccessfulSave {
+                print("Failed to save jobs")
+            } else {
+                print("jobs saved!")
+                NSUserDefaults.standardUserDefaults().setObject(self.apiManager?.searchQuery, forKey: GithubApiManager.SearchQueryUserDefaultKey)
+            }
+        }
+    }
+    
+    func loadJobs(completion: ([Job]?) -> Void) {
+        dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+            dispatch_async(dispatch_get_main_queue()) {
+                completion(NSKeyedUnarchiver.unarchiveObjectWithFile(Job.ArchiveURL!.path!) as? [Job])
+            }
         }
     }
 }

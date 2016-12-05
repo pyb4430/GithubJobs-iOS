@@ -9,29 +9,35 @@
 import Foundation
 import UIKit
 
-class UINetImageView: UIImageView {
+extension UIImageView {
     
-    static let netImageCache = NSCache()
-    
-    func setImgFromUrl(url: String) {
-        if let imgUrl = NSURL(string: url) {
-            let task = NSURLSession.sharedSession().dataTaskWithURL(imgUrl) {(data, response, error) in
-                if error == nil {
-                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                        if let data = data, logoImage = UIImage(data: data) {
-                            self.image = logoImage
-                            UINetImageView.netImageCache.setObject(logoImage, forKey: url as AnyObject)
+    func setImgFromUrl(url: NSURL) {
+        if let image = NetImageCache.cache.objectForKey(url) as? UIImage {
+            print("using cached image")
+            self.image = image
+        } else {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    self.image = UIImage(named: "logo_placeholder")
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(url) {data, _, error in
+                        if error == nil {
+                            if let data = data, logoImage = UIImage(data: data) {
+                                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                                    self.image = logoImage
+                                    NetImageCache.cache.setObject(logoImage, forKey: url as AnyObject)
+                                }
+                            }
                         }
                     }
-                } else {
-                    if let error = error { print("error: \(error) \n") }
-                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                        self.image = UIImage(named: "logo_placeholder")
-                    }
+                    task.resume()
                 }
             }
-            task.resume()
+            
         }
     }
+}
+
+struct NetImageCache {
+    static let cache = NSCache()
 }
 
