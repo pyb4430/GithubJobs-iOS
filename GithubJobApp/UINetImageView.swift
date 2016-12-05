@@ -27,6 +27,8 @@ extension UIImageView {
                                     NetImageCache.cache.setObject(logoImage, forKey: url as AnyObject)
                                 }
                             }
+                        } else {
+                            print("error loading image: \(error?.domain) \(error?.code)")
                         }
                     }
                     task.resume()

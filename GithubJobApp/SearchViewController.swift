@@ -23,7 +23,6 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let jobTableViewcontroller = segue.destinationViewController as? JobTableViewController {
             jobTableViewcontroller.searchBar = self.searchBar
