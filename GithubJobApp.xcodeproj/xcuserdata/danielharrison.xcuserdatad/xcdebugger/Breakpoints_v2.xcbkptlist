@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/JobTableViewController.swift"
-            timestampString = "502665025.362153"
+            timestampString = "502829379.859721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/DetailViewController.swift"
-            timestampString = "502318341.079803"
+            timestampString = "502743897.640239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/Job.swift"
-            timestampString = "502659315.651526"
+            timestampString = "502818942.388272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "init(withDictionary:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/GithubApiManager.swift"
-            timestampString = "502665852.433063"
+            timestampString = "502821896.244554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "getJobs(searchQuery:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/GithubApiManager.swift"
-            timestampString = "502666745.894432"
+            timestampString = "502824956.670327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "getJobsFromAPI(searchQuery:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/JobTableViewController.swift"
-            timestampString = "502665025.362153"
+            timestampString = "502829379.859721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/GithubApiManager.swift"
-            timestampString = "502651348.2725"
+            timestampString = "502821896.244554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "getJobs(searchQuery:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/Job.swift"
-            timestampString = "502659315.651526"
+            timestampString = "502818942.388272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "Job"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubJobApp/Job.swift"
+            timestampString = "502818942.388272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "init(coder:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,27 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/Job.swift"
-            timestampString = "502659315.651526"
+            timestampString = "502818942.388272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "init(coder:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GithubJobApp/Job.swift"
-            timestampString = "502659315.651526"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "init(coder:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,13 +266,122 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubJobApp/JobTableViewController.swift"
-            timestampString = "502650153.53831"
+            timestampString = "502829379.859721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubJobApp/DetailViewController.swift"
+            timestampString = "502829379.859721"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "webView(_:decidePolicyForNavigationAction:decisionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubJobApp/JobTableViewController.swift"
+            timestampString = "502829338.570431"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "apiManager"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubJobApp.JobTableViewController.apiManager.getter : Swift.Optional&lt;GithubJobApp.GithubApiManager&gt;"
+                  moduleName = "GithubJobApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielharrison/Documents/GithubJobs-iOS/GithubJobApp/JobTableViewController.swift"
+                  timestampString = "502829338.623025"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubJobApp.JobTableViewController.apiManager.setter : Swift.Optional&lt;GithubJobApp.GithubApiManager&gt;"
+                  moduleName = "GithubJobApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielharrison/Documents/GithubJobs-iOS/GithubJobApp/JobTableViewController.swift"
+                  timestampString = "502829338.624284"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubJobApp.JobTableViewController.init (style : __C.UITableViewStyle) -&gt; GithubJobApp.JobTableViewController"
+                  moduleName = "GithubJobApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielharrison/Documents/GithubJobs-iOS/GithubJobApp/JobTableViewController.swift"
+                  timestampString = "502829338.625446"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubJobApp.JobTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; GithubJobApp.JobTableViewController"
+                  moduleName = "GithubJobApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielharrison/Documents/GithubJobs-iOS/GithubJobApp/JobTableViewController.swift"
+                  timestampString = "502829338.626629"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "149">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubJobApp.JobTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;GithubJobApp.JobTableViewController&gt;"
+                  moduleName = "GithubJobApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielharrison/Documents/GithubJobs-iOS/GithubJobApp/JobTableViewController.swift"
+                  timestampString = "502829338.627786"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -15,25 +15,11 @@ class Job: NSObject, NSCoding {
     var rawCompanyUrl: String?
     var jobDescription: String
     var companyLogoUrl: NSURL? {
-        if let rawCompanyLogoUrl = rawCompanyLogoUrl {
-            return NSURL(string: rawCompanyLogoUrl)
-        } else {
-            return nil
-        }
+        return NSURL(string: rawCompanyLogoUrl ?? "")
     }
     var companyUrl: NSURL? {
-        if let rawCompanyUrl = rawCompanyUrl {
-            return NSURL(string: rawCompanyUrl)
-        } else {
-            return nil
-        }
+        return NSURL(string: rawCompanyUrl ?? "")
     }
-    
-    //MARK: Archiving Paths
-    
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("jobs")
-    
     
     init(withDictionary aDict: [String: AnyObject]) {
         company = aDict["company"] as? String ?? ""

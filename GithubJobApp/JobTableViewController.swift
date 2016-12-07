@@ -13,14 +13,19 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
     var jobArray = [Job]()
     var companyLogoCache = NSCache()
     
-    var apiManager: GithubApiManager?
+    lazy var apiManager: GithubApiManager = {
+        let manager = GithubApiManager()
+        manager.delegate = self
+        return manager
+    }()
+    
     var searchBar: UISearchBar?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         apiManager = GithubApiManager()
-        apiManager?.githubAPIDelegate = self
+        apiManager.delegate = self
         
         searchBar?.delegate = self
         loadJobs() {jobs in
@@ -31,13 +36,8 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
         }
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-//        apiManager?.getJobsFromAPI(searchQuery: searchText)
-    }
-    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        apiManager?.getJobs(searchQuery: searchBar.text!)
+        apiManager.getJobs(searchQuery: searchBar.text!)
         searchBar.endEditing(false)
     }
 
@@ -76,20 +76,23 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
     
     func saveJobs() {
         dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.jobArray, toFile: Job.ArchiveURL!.path!)
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.jobArray, toFile: Config.JobArchiveURL!.path!)
             if !isSuccessfulSave {
                 print("Failed to save jobs")
             } else {
                 print("jobs saved!")
-                NSUserDefaults.standardUserDefaults().setObject(self.apiManager?.searchQuery, forKey: GithubApiManager.SearchQueryUserDefaultKey)
+                NSUserDefaults.standardUserDefaults().setObject(self.apiManager.searchQuery, forKey: GithubApiManager.SearchQueryUserDefaultKey)
             }
         }
     }
     
     func loadJobs(completion: ([Job]?) -> Void) {
         dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-            dispatch_async(dispatch_get_main_queue()) {
-                completion(NSKeyedUnarchiver.unarchiveObjectWithFile(Job.ArchiveURL!.path!) as? [Job])
+            if let path = Config.JobArchiveURL?.path {
+                let jobs = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [Job]
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion(jobs)
+                }
             }
         }
     }

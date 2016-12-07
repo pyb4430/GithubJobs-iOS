@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5VO-tg-3G6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5VO-tg-3G6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -48,23 +48,25 @@
                                     <outletCollection property="gestureRecognizers" destination="d1q-Y9-NZo" appends="YES" id="qAG-Hm-Jqt"/>
                                 </connections>
                             </label>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41z-dQ-iJF">
-                                <rect key="frame" x="20" y="105" width="339" height="496"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JcF-kj-3JB">
+                                <rect key="frame" x="0.0" y="169" width="375" height="452"/>
+                                <connections>
+                                    <segue destination="QmY-3d-XXF" kind="embed" id="xnR-kx-lI3"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FDc-CW-BI3" firstAttribute="leading" secondItem="dfU-jA-oI9" secondAttribute="leading" constant="20" id="0dl-fE-yBZ"/>
+                            <constraint firstItem="JcF-kj-3JB" firstAttribute="top" secondItem="60c-jb-NFA" secondAttribute="bottom" constant="8" id="6b2-DJ-0Ns"/>
+                            <constraint firstAttribute="trailing" secondItem="JcF-kj-3JB" secondAttribute="trailing" constant="20" id="9Mw-pS-Nd3"/>
                             <constraint firstItem="FDc-CW-BI3" firstAttribute="top" secondItem="8BJ-8M-WXj" secondAttribute="bottom" constant="8" id="BuM-Nr-NoG"/>
                             <constraint firstItem="60c-jb-NFA" firstAttribute="top" secondItem="FDc-CW-BI3" secondAttribute="bottom" constant="8" id="J8a-Mx-uhO"/>
-                            <constraint firstItem="zlO-Q7-RYJ" firstAttribute="top" secondItem="41z-dQ-iJF" secondAttribute="bottom" constant="20" id="K4b-eY-hOT"/>
-                            <constraint firstItem="41z-dQ-iJF" firstAttribute="leading" secondItem="dfU-jA-oI9" secondAttribute="leadingMargin" constant="4" id="KNR-pX-g2s"/>
-                            <constraint firstItem="41z-dQ-iJF" firstAttribute="top" secondItem="60c-jb-NFA" secondAttribute="bottom" constant="8" id="OWo-3s-Faz"/>
+                            <constraint firstItem="zlO-Q7-RYJ" firstAttribute="top" secondItem="JcF-kj-3JB" secondAttribute="bottom" constant="5" id="OPl-5g-mmp"/>
                             <constraint firstItem="8BJ-8M-WXj" firstAttribute="leading" secondItem="dfU-jA-oI9" secondAttribute="leading" constant="20" id="ZxM-ze-0a7"/>
                             <constraint firstItem="60c-jb-NFA" firstAttribute="leading" secondItem="dfU-jA-oI9" secondAttribute="leading" constant="20" id="b85-iy-y5i"/>
                             <constraint firstItem="8BJ-8M-WXj" firstAttribute="top" secondItem="Fdo-Be-7x8" secondAttribute="bottom" constant="18" id="j4j-9r-btX"/>
-                            <constraint firstItem="41z-dQ-iJF" firstAttribute="trailing" secondItem="dfU-jA-oI9" secondAttribute="trailingMargin" id="lbz-z5-cY0"/>
+                            <constraint firstItem="JcF-kj-3JB" firstAttribute="leading" secondItem="dfU-jA-oI9" secondAttribute="leading" constant="20" id="oKr-mS-FJC"/>
                             <constraint firstAttribute="trailing" secondItem="FDc-CW-BI3" secondAttribute="trailing" constant="20" id="qAN-6B-HK8"/>
                             <constraint firstAttribute="trailing" secondItem="8BJ-8M-WXj" secondAttribute="trailing" constant="20" id="zWB-AA-JQ1"/>
                         </constraints>
@@ -72,8 +74,6 @@
                     <connections>
                         <outlet property="company" destination="FDc-CW-BI3" id="XKM-Zh-cEc"/>
                         <outlet property="companyUrl" destination="60c-jb-NFA" id="BnJ-QU-x2w"/>
-                        <outlet property="jobDescription" destination="41z-dQ-iJF" id="3ok-Hb-bTg"/>
-                        <outlet property="jobDescriptionDetails" destination="41z-dQ-iJF" id="cvk-Tb-1Ts"/>
                         <outlet property="jobTitle" destination="8BJ-8M-WXj" id="aQD-u5-bbL"/>
                     </connections>
                 </viewController>
@@ -84,7 +84,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1168.8" y="293.70314842578711"/>
+            <point key="canvasLocation" x="1183" y="322"/>
         </scene>
         <!--Job Feed-->
         <scene sceneID="KIg-si-QHV">
@@ -99,7 +99,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u4a-CB-sEf" id="R65-GQ-Rq4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5H6-tl-clZ">
@@ -183,7 +183,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9T-HO-r3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1087" y="294"/>
+            <point key="canvasLocation" x="-1086" y="322"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="LDX-cL-Byl">
@@ -229,7 +229,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1X-4V-1L6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-303.19999999999999" y="293.70314842578711"/>
+            <point key="canvasLocation" x="-298" y="322"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="kFh-ck-JT8">
+            <objects>
+                <viewController id="QmY-3d-XXF" customClass="WebViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vjk-eK-CdS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="452"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRE-N5-jV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1974" y="321"/>
         </scene>
     </scenes>
     <resources>

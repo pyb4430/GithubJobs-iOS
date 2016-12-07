@@ -20,6 +20,7 @@
 		34F2086D1DCE4CAA00ED88E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */; };
 		440744EE1DF60532008D0B61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440744ED1DF60532008D0B61 /* SearchViewController.swift */; };
 		446250131DF092F200E2EC42 /* UINetImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446250121DF092F200E2EC42 /* UINetImageView.swift */; };
+		449159C01DF8680D00F63A2A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449159BF1DF8680D00F63A2A /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		440744ED1DF60532008D0B61 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		446250121DF092F200E2EC42 /* UINetImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINetImageView.swift; sourceTree = "<group>"; };
+		449159BF1DF8680D00F63A2A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				34C7140E1DC6E8F600D707E8 /* Assets.xcassets */,
 				34C714101DC6E8F600D707E8 /* LaunchScreen.storyboard */,
 				34C714131DC6E8F600D707E8 /* Info.plist */,
+				449159BF1DF8680D00F63A2A /* Config.swift */,
 				34C714351DC6E90E00D707E8 /* GithubApiManager.swift */,
 				34C714371DC826A500D707E8 /* JobTableViewController.swift */,
 				440744ED1DF60532008D0B61 /* SearchViewController.swift */,
@@ -279,6 +282,7 @@
 			files = (
 				34C714381DC826A500D707E8 /* JobTableViewController.swift in Sources */,
 				446250131DF092F200E2EC42 /* UINetImageView.swift in Sources */,
+				449159C01DF8680D00F63A2A /* Config.swift in Sources */,
 				440744EE1DF60532008D0B61 /* SearchViewController.swift in Sources */,
 				34C714081DC6E8F600D707E8 /* AppDelegate.swift in Sources */,
 				34C7143C1DC8340100D707E8 /* JobTableViewCell.swift in Sources */,

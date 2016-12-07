@@ -14,7 +14,7 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
     private static let baseURL: String = "https://jobs.github.com/positions.json"
     static let SearchQueryUserDefaultKey = "search_query"
     
-    var githubAPIDelegate: GithubAPIDelegate?
+    var delegate: GithubAPIDelegate?
     
     var locationManager: CLLocationManager?
     
@@ -24,9 +24,7 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
         self.searchQuery = query
         print("authorization status: \(CLLocationManager.authorizationStatus().rawValue)")
         switch(CLLocationManager.authorizationStatus()) {
-            case .Restricted:
-                fallthrough
-            case .Denied:
+            case .Restricted, .Denied:
                 locationManager = nil
                 getJobsFromAPI(searchQuery: searchQuery)
             case .NotDetermined:
@@ -38,22 +36,15 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
                 if locationManager == nil {
                     locationManager = CLLocationManager()
                     locationManager?.delegate = self
-                    // seems unnecessary to request location for every search, so just do it the first time
-                    locationManager?.requestLocation()
+                    locationManager?.startMonitoringSignificantLocationChanges()
                 } else {
                     getJobsFromAPI(searchQuery: searchQuery)
                 }
         }
     }
     
-    func getJobsFromAPI(searchQuery query: String?) {
-        searchQuery = query
-        
-        let rawURL = generateURL(searchQuery, locationCoordinates: locationManager?.location?.coordinate)
-        
-        print("raw URL: " + rawURL)
-        
-        if let url = NSURL(string: rawURL) {
+    func getJobsFromAPI(searchQuery query: String?) {        
+        if let url = generateURL(searchQuery, locationCoordinates: locationManager?.location?.coordinate) {
             let task = NSURLSession.sharedSession().dataTaskWithURL(url) {data, _, error in
                 if let error = error {
                     print("error in jobs retrieval: \(error.domain)")
@@ -83,7 +74,7 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
                     }
                     
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.githubAPIDelegate?.jobsRetrieved(jobArray)
+                        self.delegate?.jobsRetrieved(jobArray)
                     }
                 } catch {
                     print(error)
@@ -93,23 +84,20 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func generateURL(searchQuery: String?, locationCoordinates: CLLocationCoordinate2D?) -> String {
-        var url = GithubApiManager.baseURL
+    func generateURL(searchQuery: String?, locationCoordinates: CLLocationCoordinate2D?) -> NSURL? {
+        let urlComps = NSURLComponents(string: GithubApiManager.baseURL)
+        var queryItems = [NSURLQueryItem]()
+        queryItems.append(NSURLQueryItem(name: "description", value: searchQuery))
+        queryItems.append(NSURLQueryItem(name: "lat", value: locationCoordinates?.latitude.description))
+        queryItems.append(NSURLQueryItem(name: "lon", value: locationCoordinates?.longitude.description))
+        urlComps?.queryItems = queryItems
         
-        if searchQuery != nil || locationCoordinates != nil {
-            url.appendContentsOf("?")
+        let finalUrl = urlComps?.URL
+        if let rawUrl = finalUrl?.absoluteString {
+            print("raw url: " + rawUrl)
         }
-        if let searchQuery = searchQuery {
-            url.appendContentsOf("description=\(searchQuery)")
-            if let locationCoordinates = locationCoordinates {
-                url.appendContentsOf("&lat=\(locationCoordinates.latitude.description)&long=\(locationCoordinates.longitude.description)")
-            }
-        } else {
-            if let locationCoordinates = locationCoordinates {
-                url.appendContentsOf("lat=\(locationCoordinates.latitude.description)&long=\(locationCoordinates.longitude.description)")
-            }
-        }
-        return url
+        
+        return finalUrl
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
