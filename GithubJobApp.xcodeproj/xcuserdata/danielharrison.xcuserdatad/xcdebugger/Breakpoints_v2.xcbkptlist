@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkName = "prepareForSegue(segue:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -191,7 +191,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
+            landmarkName = "searchBarSearchButtonClicked(searchBar:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
