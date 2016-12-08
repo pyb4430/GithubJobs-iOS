@@ -20,9 +20,7 @@ class JobTableViewCell: UITableViewCell {
             guard let job = job else { return }
             company.text = job.company
             title.text = job.title
-            if let companyLogoUrl = job.companyLogoUrl {
-                companyLogo.setImgFromUrl(companyLogoUrl)
-            }
+            companyLogo.setImgFromUrl(job.companyLogoUrl)
         }
     }
 }

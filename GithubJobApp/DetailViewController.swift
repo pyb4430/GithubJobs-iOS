@@ -28,8 +28,7 @@ class DetailViewController: UIViewController {
         
         company.text = job.company
         jobTitle.text = job.title
-        companyUrl.text = job.rawCompanyUrl
-        
+        companyUrl.text = job.rawCompanyUrl        
     }
     
     @IBAction func handleUrlClick(recognizer: UITapGestureRecognizer) {
