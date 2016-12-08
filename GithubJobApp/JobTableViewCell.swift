@@ -12,15 +12,16 @@ class JobTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var company: UILabel!    
-    @IBOutlet weak var companyLogo: UIView!
+    @IBOutlet weak var companyLogo: UIImageView!
     @IBOutlet weak var title: UILabel!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    var job: Job? {
+        didSet {
+            guard let job = job else { return }
+            company.text = job.company
+            title.text = job.title
+            companyLogo.setImgFromUrl(job.companyLogoUrl)
+        }
     }
-    
-
-
 }
+
