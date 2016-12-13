@@ -15,15 +15,6 @@ class JobTableViewCell: UITableViewCell {
     @IBOutlet weak var companyLogo: UIImageView!
     @IBOutlet weak var title: UILabel!
     
-    var job: Job? {
-        didSet {
-            guard let job = job else { return }
-            company.text = job.company
-            title.text = job.title
-            companyLogo.setImgFromUrl(job.companyLogoUrl)
-        }
-    }
-    
     var jobRealm: JobRealm? {
         didSet {
             guard let job = jobRealm else { return }

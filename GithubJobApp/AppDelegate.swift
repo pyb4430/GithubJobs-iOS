@@ -21,9 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Inside your application(application:didFinishLaunchingWithOptions:)
         
         let config = Realm.Configuration(
-            // Set the new schema version. This must be greater than the previously used
-            // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 1,
+            schemaVersion: Config.RealmSchemaVersion,
             deleteRealmIfMigrationNeeded: true)
         
         // Tell Realm to use this new configuration object for the default Realm

@@ -16,20 +16,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var companyUrl: UILabel!
 
-    var job: Job?
     var jobRealm: JobRealm?
     var webViewController: WebViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        guard let job = job else {
-//            return
-//        }
-//        
-//        company.text = job.company
-//        jobTitle.text = job.title
-//        companyUrl.text = job.rawCompanyUrl
         
         guard let jobRealm = jobRealm else {
             return
@@ -41,10 +32,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func handleUrlClick(recognizer: UITapGestureRecognizer) {
-        if let url = job?.companyUrl {
-            let svc = SFSafariViewController(URL: url)
-            self.presentViewController(svc, animated: true, completion: nil)
-        } else if let url = jobRealm?.companyUrl {
+        if let url = jobRealm?.companyUrl {
             let svc = SFSafariViewController(URL: url)
             self.presentViewController(svc, animated: true, completion: nil)
         }
@@ -62,7 +50,6 @@ class DetailViewController: UIViewController {
 class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     var webView: WKWebView?
-    var job: Job?
     var jobRealm: JobRealm?
     
     override func loadView() {

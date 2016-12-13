@@ -15,7 +15,6 @@
 		34C714281DC6E8F600D707E8 /* GithubJobAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C714271DC6E8F600D707E8 /* GithubJobAppUITests.swift */; };
 		34C714361DC6E90E00D707E8 /* GithubApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C714351DC6E90E00D707E8 /* GithubApiManager.swift */; };
 		34C714381DC826A500D707E8 /* JobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C714371DC826A500D707E8 /* JobTableViewController.swift */; };
-		34C7143A1DC826EE00D707E8 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C714391DC826EE00D707E8 /* Job.swift */; };
 		34C7143C1DC8340100D707E8 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7143B1DC8340100D707E8 /* JobTableViewCell.swift */; };
 		34F2086D1DCE4CAA00ED88E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */; };
 		440744EE1DF60532008D0B61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440744ED1DF60532008D0B61 /* SearchViewController.swift */; };
@@ -62,7 +61,6 @@
 		34C714291DC6E8F600D707E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34C714351DC6E90E00D707E8 /* GithubApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubApiManager.swift; sourceTree = "<group>"; };
 		34C714371DC826A500D707E8 /* JobTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewController.swift; sourceTree = "<group>"; };
-		34C714391DC826EE00D707E8 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		34C7143B1DC8340100D707E8 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		440744ED1DF60532008D0B61 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				34C714371DC826A500D707E8 /* JobTableViewController.swift */,
 				445A6B551DF9F41100E6EA95 /* Bookmarks.storyboard */,
 				440744ED1DF60532008D0B61 /* SearchViewController.swift */,
-				34C714391DC826EE00D707E8 /* Job.swift */,
 				445A6B571DF9F5AF00E6EA95 /* JobDetail.storyboard */,
 				445A6B591DFA080100E6EA95 /* JobBookmarkTableViewController.swift */,
 				34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */,
@@ -394,7 +391,6 @@
 				4410C7841DFC9707004A5683 /* JobRealm.swift in Sources */,
 				34C714361DC6E90E00D707E8 /* GithubApiManager.swift in Sources */,
 				443F38FE1DFEFB3C00EC1609 /* RealmController.swift in Sources */,
-				34C7143A1DC826EE00D707E8 /* Job.swift in Sources */,
 				34F2086D1DCE4CAA00ED88E4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

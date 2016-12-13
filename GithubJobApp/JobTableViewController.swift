@@ -11,7 +11,6 @@ import RealmSwift
 
 class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearchBarDelegate {
     
-    var jobArray = [Job]()
     var jobArrayRealm = [JobRealm]()
     var companyLogoCache = NSCache()
     
@@ -30,12 +29,6 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
         apiManager.delegate = self
         
         searchBar?.delegate = self
-//        loadJobs() {jobs in
-//            if let jobs = jobs {
-//                self.jobsRetrieved(jobs)
-//            }
-//            self.searchBar?.text = NSUserDefaults.standardUserDefaults().stringForKey(GithubApiManager.SearchQueryUserDefaultKey)
-//        }
         
         loadJobsRealm() {jobs in
             if let jobs = jobs {
@@ -55,7 +48,6 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return jobArray.count
         return jobArrayRealm.count
     }
     
@@ -64,7 +56,6 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
             return UITableViewCell()
         }
 
-//        cell.job = jobArray[indexPath.row]
         cell.jobRealm = jobArrayRealm[indexPath.row]
         
         return cell
@@ -73,7 +64,6 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let detailViewController = segue.destinationViewController as? DetailViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
-//            detailViewController.job = jobArray[indexPath.row]
             detailViewController.jobRealm = jobArrayRealm[indexPath.row]
             
             let jobRealm = jobArrayRealm[indexPath.row]
@@ -89,38 +79,16 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
                         realm.add(jr, update: true)
                     }
                 } catch {
-                    
+                    print("unable to save job in history")
                 }
             }
         }
     }
     
-    func jobsRetrieved(jobs: [Job]) {
-        jobArray = jobs
-        tableView.reloadData()
-//        saveJobs()
-        saveJobsRealm()
-    }
-    
     func jobsRetrievedRealm(jobs: [JobRealm]) {
         jobArrayRealm = jobs
         tableView.reloadData()
-//        saveJobs()
         saveJobsRealm()
-    }
-    
-    // MARK: NSCoding
-    
-    func saveJobs() {
-        dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.jobArray, toFile: Config.JobArchiveURL!.path!)
-            if !isSuccessfulSave {
-                print("Failed to save jobs")
-            } else {
-                print("jobs saved!")
-                NSUserDefaults.standardUserDefaults().setObject(self.apiManager.searchQuery, forKey: GithubApiManager.SearchQueryUserDefaultKey)
-            }
-        }
     }
     
     func saveJobsRealm() {
@@ -135,7 +103,7 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
                 realm.create(JobViewHistory.self, value: jobCache, update: true)
             }
         } catch {
-            
+            print("unable to cache jobs in realm")
         }
     }
     
@@ -144,16 +112,5 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
         let jobViewHistory = realm.objects(JobViewHistory.self)
         completion(jobViewHistory.first?.jobs.map({$0}))
         print("jobs loaded from realm cache")
-    }
-    
-    func loadJobs(completion: ([Job]?) -> Void) {
-        dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-            if let path = Config.JobArchiveURL?.path {
-                let jobs = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? [Job]
-                dispatch_async(dispatch_get_main_queue()) {
-                    completion(jobs)
-                }
-            }
-        }
     }
 }

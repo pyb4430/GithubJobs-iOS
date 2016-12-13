@@ -123,7 +123,7 @@
             </objects>
             <point key="canvasLocation" x="2218" y="141"/>
         </scene>
-        <!--Bookmarks-->
+        <!--History-->
         <scene sceneID="tct-29-Obv">
             <objects>
                 <tableViewController id="Gld-Tg-EHf" customClass="JobBookmarkTableViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -188,7 +188,7 @@
                             <outlet property="delegate" destination="Gld-Tg-EHf" id="iKK-4o-58z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bookmarks" id="273-f4-71t"/>
+                    <navigationItem key="navigationItem" title="History" id="273-f4-71t"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4l-bX-HMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="buP-hu-Bze"/>
