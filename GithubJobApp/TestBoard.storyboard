@@ -36,7 +36,7 @@
                             <constraint firstItem="Hm4-k6-Cfk" firstAttribute="leading" secondItem="tuV-o1-kyb" secondAttribute="leading" id="rcd-di-v1g"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="uyZ-Fb-rOl"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="uyZ-Fb-rOl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qyi-Gg-8sY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

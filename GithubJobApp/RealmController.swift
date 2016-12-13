@@ -25,7 +25,7 @@ struct RealmController {
             }
             
             print("configuring realm... ")
-            let configuration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: realmNameURL))
+            let configuration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: realmNameURL), schemaVersion: Config.RealmSchemaVersion, deleteRealmIfMigrationNeeded: true)
             
             dispatch_async(dispatch_get_main_queue()) {
                 completion(configuration)

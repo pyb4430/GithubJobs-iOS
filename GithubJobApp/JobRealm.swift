@@ -26,6 +26,10 @@ class JobRealm: Object {
         return NSURL(string: rawCompanyUrl ?? "")
     }
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
     convenience init(json: JSON) {
         self.init()
         self.company = json["company"].string ?? ""

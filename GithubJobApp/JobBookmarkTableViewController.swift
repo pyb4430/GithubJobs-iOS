@@ -13,6 +13,7 @@ class JobBookmarkTableViewController: UITableViewController {
 
     var jobs: [JobRealm]?
     var jobResults: Results<JobRealm>?
+    var notificationToken: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,12 @@ class JobBookmarkTableViewController: UITableViewController {
         
         RealmController.getRealmConfig(Config.RealmURL, realmName: Config.RealmJobViewHistory) { config in
             let realm = RealmController.getRealm(config)
+            
+            self.notificationToken = realm.addNotificationBlock() { notification, realm in
+                self.jobResults = realm.objects(JobRealm)
+                self.tableView.reloadData()
+                print("realm says update the job view history")
+            }
             
             self.jobResults = realm.objects(JobRealm)
             self.tableView.reloadData()

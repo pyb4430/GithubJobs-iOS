@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
+
+typealias RealmMigrationBlock = (Migration, UInt64) -> Void
 
 enum Config {
     //MARK: Archiving Paths
@@ -22,4 +25,14 @@ enum Config {
     static let RealmJobViewHistory = "jobviewhistory"
     static let RealmUsername = "taylor@oakcity.io"
     static let RealmPassword = "Goos?fraBa84!7"
+    
+    // Realm migration block
+    
+    static let RealmSchemaVersion: UInt64 = 1
+    
+    static func realmMigrationBlock(migration: Migration, oldSchemaVersion: UInt64) {
+        if (oldSchemaVersion < RealmSchemaVersion) {
+            migration.deleteData("JobRealm")
+        }
+    }
 }

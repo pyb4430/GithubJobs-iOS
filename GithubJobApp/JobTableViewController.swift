@@ -81,11 +81,15 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
             RealmController.getRealmConfig(Config.RealmURL, realmName: Config.RealmJobViewHistory) { config in
                 let realm = RealmController.getRealm(config)
                 
-                try! realm.write {
-                    let jr = JobRealm(value: ["title": jobRealm.title, "jobDescription": jobRealm.jobDescription, "company": jobRealm.company, "id": jobRealm.id])
-                    jr.rawCompanyLogoUrl = jobRealm.rawCompanyLogoUrl
-                    jr.rawCompanyUrl = jobRealm.rawCompanyUrl
-                    realm.add(jr)
+                do {
+                    try realm.write {
+                        let jr = JobRealm(value: ["title": jobRealm.title, "jobDescription": jobRealm.jobDescription, "company": jobRealm.company, "id": jobRealm.id])
+                        jr.rawCompanyLogoUrl = jobRealm.rawCompanyLogoUrl
+                        jr.rawCompanyUrl = jobRealm.rawCompanyUrl
+                        realm.add(jr, update: true)
+                    }
+                } catch {
+                    
                 }
             }
         }
@@ -124,9 +128,14 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
         let jobs = jobArrayRealm.map({$0})
         let jobCache = JobViewHistory(value: ["jobs": jobs])
         jobCache.id = Config.JobCacheID
-        try! realm.write {
-            print("jobs cached in realm")
-            realm.create(JobViewHistory.self, value: jobCache, update: true)
+        
+        do {
+            try realm.write {
+                print("jobs cached in realm")
+                realm.create(JobViewHistory.self, value: jobCache, update: true)
+            }
+        } catch {
+            
         }
     }
     
