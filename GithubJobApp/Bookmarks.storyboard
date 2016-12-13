@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qxz-Fv-Wco">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="VVb-m8-Zwo">
+            <objects>
+                <navigationController id="qxz-Fv-Wco" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Il1-LM-kei">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Gld-Tg-EHf" kind="relationship" relationship="rootViewController" id="fG3-nl-vPN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tjj-0a-YsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-148" y="142"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="zSO-Y4-g1S">
+            <objects>
+                <viewController id="Zeh-Jt-QQX" customClass="DetailViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d2q-Sv-qye"/>
+                        <viewControllerLayoutGuide type="bottom" id="x1s-0i-OeZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n12-sY-KNg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTR-m7-nEP">
+                                <rect key="frame" x="20" y="82" width="339" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G17-FD-30l">
+                                <rect key="frame" x="20" y="111" width="339" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MMf-be-o5c">
+                                <rect key="frame" x="20" y="140" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40V-ds-nec" userLabel="CompanyURL">
+                                <rect key="frame" x="20" y="140" width="339" height="21"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.074455665320000003" green="0.45218448379999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="CzW-gk-AzY" appends="YES" id="pWG-BO-Mtj"/>
+                                </connections>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JM6-Mh-5cH">
+                                <rect key="frame" x="0.0" y="169" width="375" height="452"/>
+                                <connections>
+                                    <segue destination="VEi-Rp-83A" kind="embed" id="1Fa-7V-rC0"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JM6-Mh-5cH" firstAttribute="top" secondItem="40V-ds-nec" secondAttribute="bottom" constant="8" id="4gc-7i-MZG"/>
+                            <constraint firstItem="40V-ds-nec" firstAttribute="trailing" secondItem="n12-sY-KNg" secondAttribute="trailingMargin" id="7ZE-cD-F5i"/>
+                            <constraint firstItem="JM6-Mh-5cH" firstAttribute="leading" secondItem="n12-sY-KNg" secondAttribute="leading" constant="20" id="9XX-TT-f2m"/>
+                            <constraint firstAttribute="trailing" secondItem="G17-FD-30l" secondAttribute="trailing" constant="20" id="DAI-Zk-MO7"/>
+                            <constraint firstItem="wTR-m7-nEP" firstAttribute="trailing" secondItem="n12-sY-KNg" secondAttribute="trailingMargin" id="FtK-B3-fT7"/>
+                            <constraint firstItem="40V-ds-nec" firstAttribute="top" secondItem="G17-FD-30l" secondAttribute="bottom" constant="8" id="H60-Nb-nuK"/>
+                            <constraint firstItem="G17-FD-30l" firstAttribute="trailing" secondItem="n12-sY-KNg" secondAttribute="trailingMargin" id="JEK-rL-U9O"/>
+                            <constraint firstItem="wTR-m7-nEP" firstAttribute="top" secondItem="d2q-Sv-qye" secondAttribute="bottom" constant="18" id="NcN-fA-xqI"/>
+                            <constraint firstItem="wTR-m7-nEP" firstAttribute="leading" secondItem="n12-sY-KNg" secondAttribute="leading" constant="20" id="SOj-EX-iaK"/>
+                            <constraint firstItem="G17-FD-30l" firstAttribute="top" secondItem="wTR-m7-nEP" secondAttribute="bottom" constant="8" id="bRL-dT-wWo"/>
+                            <constraint firstItem="40V-ds-nec" firstAttribute="leading" secondItem="n12-sY-KNg" secondAttribute="leading" constant="20" id="cbB-2v-LeQ"/>
+                            <constraint firstItem="x1s-0i-OeZ" firstAttribute="top" secondItem="JM6-Mh-5cH" secondAttribute="bottom" constant="5" id="oFi-g7-lWe"/>
+                            <constraint firstAttribute="trailing" secondItem="wTR-m7-nEP" secondAttribute="trailing" constant="20" id="unM-Dv-7jj"/>
+                            <constraint firstAttribute="trailing" secondItem="JM6-Mh-5cH" secondAttribute="trailing" constant="20" id="ySw-Wr-XXk"/>
+                            <constraint firstItem="G17-FD-30l" firstAttribute="leading" secondItem="n12-sY-KNg" secondAttribute="leading" constant="20" id="yfx-iT-TUQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="company" destination="G17-FD-30l" id="RI8-Vm-kGY"/>
+                        <outlet property="companyUrl" destination="40V-ds-nec" id="zDR-xr-GqY"/>
+                        <outlet property="jobTitle" destination="wTR-m7-nEP" id="9bW-nS-xV7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQm-eW-rcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="CzW-gk-AzY">
+                    <connections>
+                        <action selector="handleUrlClick:" destination="Zeh-Jt-QQX" id="67g-Bv-j6u"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1337" y="142"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="1e6-If-Bzt">
+            <objects>
+                <viewController id="VEi-Rp-83A" customClass="WebViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9T1-9S-yFX"/>
+                        <viewControllerLayoutGuide type="bottom" id="jps-Oi-Hxl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5sv-zs-7oE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="452"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A5l-1z-zPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2218" y="141"/>
+        </scene>
+        <!--Bookmarks-->
+        <scene sceneID="tct-29-Obv">
+            <objects>
+                <tableViewController id="Gld-Tg-EHf" customClass="JobBookmarkTableViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="bdp-p0-Ekj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="JobTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobTableViewCell" rowHeight="120" id="EoY-Qt-EQ3" userLabel="reuseIdentifier" customClass="JobTableViewCell" customModule="GithubJobApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EoY-Qt-EQ3" id="EOa-L9-ZER">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="1Rv-pU-O2b">
+                                            <rect key="frame" x="8" y="0.0" width="103" height="103"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="104" id="srP-Bs-Qf5"/>
+                                                <constraint firstAttribute="width" constant="104" id="vTg-Yb-y4g"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="fMV-MM-YiY">
+                                            <rect key="frame" x="120" y="49" width="247" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="6WV-43-4FG">
+                                            <rect key="frame" x="120" y="20" width="247" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1Rv-pU-O2b" firstAttribute="leading" secondItem="EOa-L9-ZER" secondAttribute="leading" constant="8" id="1K7-0Q-Cca"/>
+                                        <constraint firstItem="6WV-43-4FG" firstAttribute="trailing" secondItem="EOa-L9-ZER" secondAttribute="trailingMargin" id="Jx8-9I-VCm"/>
+                                        <constraint firstItem="6WV-43-4FG" firstAttribute="leading" secondItem="1Rv-pU-O2b" secondAttribute="trailing" constant="8" id="K5T-uE-WYg"/>
+                                        <constraint firstItem="fMV-MM-YiY" firstAttribute="top" secondItem="6WV-43-4FG" secondAttribute="bottom" constant="8" id="Mpw-kM-bFs"/>
+                                        <constraint firstItem="fMV-MM-YiY" firstAttribute="leading" secondItem="1Rv-pU-O2b" secondAttribute="trailing" constant="8" id="QKE-GM-2DJ"/>
+                                        <constraint firstItem="1Rv-pU-O2b" firstAttribute="top" secondItem="EOa-L9-ZER" secondAttribute="top" constant="8" id="aW0-Lf-75t"/>
+                                        <constraint firstItem="fMV-MM-YiY" firstAttribute="trailing" secondItem="EOa-L9-ZER" secondAttribute="trailingMargin" id="fMB-uI-lWb"/>
+                                        <constraint firstItem="6WV-43-4FG" firstAttribute="top" secondItem="EOa-L9-ZER" secondAttribute="topMargin" constant="12" id="j7K-FO-zhj"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="JobTableViewCell">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="company" destination="6WV-43-4FG" id="yv1-Fj-TMW"/>
+                                    <outlet property="companyLogo" destination="1Rv-pU-O2b" id="8sj-mh-nTF"/>
+                                    <outlet property="title" destination="fMV-MM-YiY" id="zbq-NH-uaU"/>
+                                    <outletCollection property="gestureRecognizers" destination="buP-hu-Bze" appends="YES" id="Dzb-c0-J4y"/>
+                                    <segue destination="Zeh-Jt-QQX" kind="show" id="KLj-Bw-n6E"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Gld-Tg-EHf" id="gTh-za-pnF"/>
+                            <outlet property="delegate" destination="Gld-Tg-EHf" id="iKK-4o-58z"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Bookmarks" id="273-f4-71t"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4l-bX-HMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="buP-hu-Bze"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo_placeholder" width="210" height="210"/>
+    </resources>
+</document>

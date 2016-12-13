@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kpe-qF-Epj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="rsT-uM-KCc">
+            <objects>
+                <viewController id="kpe-qF-Epj" customClass="DetailViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dcI-CX-gQU"/>
+                        <viewControllerLayoutGuide type="bottom" id="4fL-Ke-xfu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uIP-PV-44v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwE-DQ-3R7">
+                                <rect key="frame" x="20" y="82" width="339" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVy-gN-ezf">
+                                <rect key="frame" x="20" y="111" width="339" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chc-fn-Fuk">
+                                <rect key="frame" x="20" y="140" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dp0-L9-NDi" userLabel="CompanyURL">
+                                <rect key="frame" x="20" y="140" width="339" height="21"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.074455665320000003" green="0.45218448379999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vSy-6s-HRE" appends="YES" id="ZM7-Xg-fK0"/>
+                                </connections>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMe-ak-EBR">
+                                <rect key="frame" x="0.0" y="169" width="375" height="452"/>
+                                <connections>
+                                    <segue destination="t6U-eg-jFP" kind="embed" id="cns-jh-Ty2"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MwE-DQ-3R7" firstAttribute="trailing" secondItem="uIP-PV-44v" secondAttribute="trailingMargin" id="0oX-K2-TEG"/>
+                            <constraint firstAttribute="trailing" secondItem="MwE-DQ-3R7" secondAttribute="trailing" constant="20" id="5GS-4c-Kkz"/>
+                            <constraint firstItem="4fL-Ke-xfu" firstAttribute="top" secondItem="pMe-ak-EBR" secondAttribute="bottom" constant="5" id="6CB-J5-quy"/>
+                            <constraint firstItem="dp0-L9-NDi" firstAttribute="trailing" secondItem="uIP-PV-44v" secondAttribute="trailingMargin" id="6ke-50-qPu"/>
+                            <constraint firstAttribute="trailing" secondItem="pMe-ak-EBR" secondAttribute="trailing" constant="20" id="JcM-23-Tbg"/>
+                            <constraint firstItem="pMe-ak-EBR" firstAttribute="top" secondItem="dp0-L9-NDi" secondAttribute="bottom" constant="8" id="RJv-Ve-XOz"/>
+                            <constraint firstItem="gVy-gN-ezf" firstAttribute="trailing" secondItem="uIP-PV-44v" secondAttribute="trailingMargin" id="TbG-gC-h9H"/>
+                            <constraint firstItem="gVy-gN-ezf" firstAttribute="leading" secondItem="uIP-PV-44v" secondAttribute="leading" constant="20" id="U0R-g7-c4t"/>
+                            <constraint firstItem="gVy-gN-ezf" firstAttribute="top" secondItem="MwE-DQ-3R7" secondAttribute="bottom" constant="8" id="elT-eg-5ms"/>
+                            <constraint firstItem="pMe-ak-EBR" firstAttribute="leading" secondItem="uIP-PV-44v" secondAttribute="leading" constant="20" id="lyl-K0-NaF"/>
+                            <constraint firstItem="dp0-L9-NDi" firstAttribute="top" secondItem="gVy-gN-ezf" secondAttribute="bottom" constant="8" id="qir-sM-KA5"/>
+                            <constraint firstItem="dp0-L9-NDi" firstAttribute="leading" secondItem="uIP-PV-44v" secondAttribute="leading" constant="20" id="vdd-l8-uVO"/>
+                            <constraint firstItem="MwE-DQ-3R7" firstAttribute="top" secondItem="dcI-CX-gQU" secondAttribute="bottom" constant="18" id="x1p-RB-4wC"/>
+                            <constraint firstAttribute="trailing" secondItem="gVy-gN-ezf" secondAttribute="trailing" constant="20" id="xMp-E6-09L"/>
+                            <constraint firstItem="MwE-DQ-3R7" firstAttribute="leading" secondItem="uIP-PV-44v" secondAttribute="leading" constant="20" id="y2D-Gk-SQZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="company" destination="gVy-gN-ezf" id="mMV-yt-7bs"/>
+                        <outlet property="companyUrl" destination="dp0-L9-NDi" id="oNu-tc-dGG"/>
+                        <outlet property="jobTitle" destination="MwE-DQ-3R7" id="Ega-5g-Aiu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gw3-di-uX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vSy-6s-HRE">
+                    <connections>
+                        <action selector="handleUrlClick:" destination="kpe-qF-Epj" id="B0h-Jl-is6"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1231" y="322"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="PSw-b8-cfT">
+            <objects>
+                <viewController id="t6U-eg-jFP" customClass="WebViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mev-BS-85Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="G98-nN-QgM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PtW-gO-vYI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="452"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCI-EK-u40" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2050" y="321"/>
+        </scene>
+    </scenes>
+</document>

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Job: NSObject, NSCoding {
     var company: String
@@ -35,6 +36,14 @@ class Job: NSObject, NSCoding {
         self.jobDescription = jobDescription
         self.rawCompanyLogoUrl = companyLogoURL
         self.rawCompanyUrl = companyURL
+    }
+    
+    init(json: JSON) {
+        self.company = json["company"].string ?? ""
+        self.title = json["title"].string ?? ""
+        self.jobDescription = json["description"].string ?? ""
+        self.rawCompanyLogoUrl = json["company_logo"].string
+        self.rawCompanyUrl = json["company_url"].string
     }
     
     func encodeWithCoder(aCoder: NSCoder) {

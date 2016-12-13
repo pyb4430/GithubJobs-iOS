@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearchBarDelegate {
     
     var jobArray = [Job]()
+    var jobArrayRealm = [JobRealm]()
     var companyLogoCache = NSCache()
     
     lazy var apiManager: GithubApiManager = {
@@ -28,9 +30,16 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
         apiManager.delegate = self
         
         searchBar?.delegate = self
-        loadJobs() {jobs in
+//        loadJobs() {jobs in
+//            if let jobs = jobs {
+//                self.jobsRetrieved(jobs)
+//            }
+//            self.searchBar?.text = NSUserDefaults.standardUserDefaults().stringForKey(GithubApiManager.SearchQueryUserDefaultKey)
+//        }
+        
+        loadJobsRealm() {jobs in
             if let jobs = jobs {
-                self.jobsRetrieved(jobs)
+                self.jobsRetrievedRealm(jobs)
             }
             self.searchBar?.text = NSUserDefaults.standardUserDefaults().stringForKey(GithubApiManager.SearchQueryUserDefaultKey)
         }
@@ -46,7 +55,8 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jobArray.count
+//        return jobArray.count
+        return jobArrayRealm.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -54,7 +64,8 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
             return UITableViewCell()
         }
 
-        cell.job = jobArray[indexPath.row]
+//        cell.job = jobArray[indexPath.row]
+        cell.jobRealm = jobArrayRealm[indexPath.row]
         
         return cell
     }
@@ -62,14 +73,36 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let detailViewController = segue.destinationViewController as? DetailViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
-            detailViewController.job = jobArray[indexPath.row]
+//            detailViewController.job = jobArray[indexPath.row]
+            detailViewController.jobRealm = jobArrayRealm[indexPath.row]
+            
+            let jobRealm = jobArrayRealm[indexPath.row]
+            
+            RealmController.getRealmConfig(Config.RealmURL, realmName: Config.RealmJobViewHistory) { config in
+                let realm = RealmController.getRealm(config)
+                
+                try! realm.write {
+                    let jr = JobRealm(value: ["title": jobRealm.title, "jobDescription": jobRealm.jobDescription, "company": jobRealm.company, "id": jobRealm.id])
+                    jr.rawCompanyLogoUrl = jobRealm.rawCompanyLogoUrl
+                    jr.rawCompanyUrl = jobRealm.rawCompanyUrl
+                    realm.add(jr)
+                }
+            }
         }
     }
     
     func jobsRetrieved(jobs: [Job]) {
         jobArray = jobs
         tableView.reloadData()
-        saveJobs()
+//        saveJobs()
+        saveJobsRealm()
+    }
+    
+    func jobsRetrievedRealm(jobs: [JobRealm]) {
+        jobArrayRealm = jobs
+        tableView.reloadData()
+//        saveJobs()
+        saveJobsRealm()
     }
     
     // MARK: NSCoding
@@ -84,6 +117,24 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
                 NSUserDefaults.standardUserDefaults().setObject(self.apiManager.searchQuery, forKey: GithubApiManager.SearchQueryUserDefaultKey)
             }
         }
+    }
+    
+    func saveJobsRealm() {
+        let realm = RealmController.getRealm()
+        let jobs = jobArrayRealm.map({$0})
+        let jobCache = JobViewHistory(value: ["jobs": jobs])
+        jobCache.id = Config.JobCacheID
+        try! realm.write {
+            print("jobs cached in realm")
+            realm.create(JobViewHistory.self, value: jobCache, update: true)
+        }
+    }
+    
+    func loadJobsRealm(completion: ([JobRealm]?) -> Void) {
+        let realm = RealmController.getRealm()
+        let jobViewHistory = realm.objects(JobViewHistory.self)
+        completion(jobViewHistory.first?.jobs.map({$0}))
+        print("jobs loaded from realm cache")
     }
     
     func loadJobs(completion: ([Job]?) -> Void) {

@@ -8,6 +8,23 @@
 
 import Foundation
 import CoreLocation
+import SwiftyJSON
+import RealmSwift
+
+final class TaskList: Object {
+    dynamic var text = ""
+    dynamic var id = ""
+    let items = List<Task>()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+final class Task: Object {
+    dynamic var text = ""
+    dynamic var completed = false
+}
 
 class GithubApiManager: NSObject, CLLocationManagerDelegate {
     
@@ -50,34 +67,63 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
                     print("error in jobs retrieval: \(error.domain)")
                     return
                 }
-                guard let jobs = data else {
+                guard let jobsData = data else {
                     print("no data recieved")
                     return
                 }
-                print(NSString(data: jobs, encoding: NSUTF8StringEncoding))
+                print(NSString(data: jobsData, encoding: NSUTF8StringEncoding))
                 
-                var jobArray = [Job]()
-                let json: [AnyObject]?
-                do {
-                    json = try NSJSONSerialization.JSONObjectWithData(jobs, options: NSJSONReadingOptions()) as? [AnyObject]
-                    
-                    if let json = json {
-                        print("how many jobs?: \(json.count)")
-                        for job in json {
-                            guard let jobJson = job as? [String: AnyObject] else {
-                                print("error reading job: \(jobArray.count)")
-                                continue
-                            }
-                            
-                            jobArray.append(Job(withDictionary: jobJson))
-                        }
-                    }
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.delegate?.jobsRetrieved(jobArray)
-                    }
-                } catch {
-                    print(error)
+                
+                
+                
+                
+//                SyncUser.logInWithCredentials(.usernamePassword("taylor@oakcity.io", password: "Goos?fraBa84!7", register: false), authServerURL: NSURL(string: "http://127.0.0.1:9080")!, onCompletion: { user, error in
+//                    
+//                    guard let user = user else {
+//                        fatalError(String(error))
+//                    }
+//                    
+//                    dispatch_async(dispatch_get_main_queue()) {
+//                        print("configuring realm... ")
+//                        let configuration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: NSURL(string: "realm://127.0.0.1:9080/~/job_view_history")!))
+//                    
+//                        let realm = try! Realm(configuration: configuration)
+//                        
+//                        let jobViewHistory = realm.objects(JobViewHistory.self)
+//
+//                        print("writing to realm...")
+//                        try! realm.write {
+//                            let json = try! NSJSONSerialization.JSONObjectWithData(jobsData, options: [])
+//                            
+//                            if(jobViewHistory.count < 1) {
+//                                print("creating jobViewHistory")
+//                                realm.create(JobViewHistory.self, value: JobViewHistory(), update: false)
+//                            } else {
+//                                print("jobViewHistory not empty: \(jobViewHistory.count)" )
+//                                let jobR = JobRealm()
+//                                jobR.company = "woo"
+//                                jobR.title = "hist"
+//                                jobViewHistory.first?.jobs.append(jobR)
+//                            }
+////                            realm.create(JobRealm.self, value: json[0], update: false)
+////                            realm.objects(TaskList.self).first?.items.append(Task(value: ["text": "githubjobs task3"]))
+////                            realm.create(JobRealmd.self, value: JobRealm(), update: true)
+////                            let jobR = JobRealm()
+////                            jobR.company = "hey"
+////                            jobR.title = "sup realm"
+////                            realm.add(jobR)
+//                        }
+////                        print("realm job? : \(realm.objects(TaskList.self).first?.company)")
+//                    }
+//                })
+                
+                let jsonJobs = JSON(data: jobsData)
+                let jobArray = jsonJobs.arrayValue.map({Job(json: $0)})
+                let jobArrayRealm = jsonJobs.arrayValue.map({JobRealm(json: $0)})
+            
+                dispatch_async(dispatch_get_main_queue()) {
+//                    self.delegate?.jobsRetrieved(jobArray)
+                    self.delegate?.jobsRetrievedRealm(jobArrayRealm)
                 }
             }
             task.resume()
@@ -123,4 +169,7 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
 
 protocol GithubAPIDelegate {
     func jobsRetrieved(jobs: [Job]) -> Void
+    func jobsRetrievedRealm(jobs: [JobRealm]) -> Void
 }
+
+

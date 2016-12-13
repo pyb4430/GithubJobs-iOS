@@ -23,5 +23,14 @@ class JobTableViewCell: UITableViewCell {
             companyLogo.setImgFromUrl(job.companyLogoUrl)
         }
     }
+    
+    var jobRealm: JobRealm? {
+        didSet {
+            guard let job = jobRealm else { return }
+            company.text = job.company
+            title.text = job.title
+            companyLogo.setImgFromUrl(job.companyLogoUrl)
+        }
+    }
 }
 

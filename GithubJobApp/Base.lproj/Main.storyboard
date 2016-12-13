@@ -13,13 +13,19 @@
         <!--Detail View Controller-->
         <scene sceneID="Jj0-Ry-j0z">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfe-fg-Tb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="d1q-Y9-NZo">
+                    <connections>
+                        <action selector="handleUrlClick:" destination="q8b-jA-j1N" id="njk-nv-ykh"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <viewController id="q8b-jA-j1N" customClass="DetailViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fdo-Be-7x8"/>
                         <viewControllerLayoutGuide type="bottom" id="zlO-Q7-RYJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dfU-jA-oI9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="621"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BJ-8M-WXj">
@@ -80,12 +86,6 @@
                         <outlet property="jobTitle" destination="8BJ-8M-WXj" id="aQD-u5-bbL"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfe-fg-Tb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="d1q-Y9-NZo">
-                    <connections>
-                        <action selector="handleUrlClick:" destination="q8b-jA-j1N" id="njk-nv-ykh"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1183" y="322"/>
         </scene>
@@ -94,7 +94,7 @@
             <objects>
                 <tableViewController id="R0T-Cu-Qs1" customClass="JobTableViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="ybz-II-NYu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="621"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -201,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwE-Tn-FGj">
-                                <rect key="frame" x="0.0" y="46" width="375" height="621"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
                                 <connections>
                                     <segue destination="R0T-Cu-Qs1" kind="embed" id="6QH-zC-vHp"/>
                                 </connections>
@@ -221,7 +221,7 @@
                             <constraint firstItem="mbN-TN-oBC" firstAttribute="top" secondItem="fDY-kK-Gj4" secondAttribute="bottom" id="G2T-K9-Qhh"/>
                             <constraint firstAttribute="trailing" secondItem="mbN-TN-oBC" secondAttribute="trailing" id="KX3-XT-zNc"/>
                             <constraint firstItem="mbN-TN-oBC" firstAttribute="leading" secondItem="zny-Lb-nL5" secondAttribute="leading" id="KsF-qi-VlU"/>
-                            <constraint firstItem="bwE-Tn-FGj" firstAttribute="top" secondItem="mbN-TN-oBC" secondAttribute="bottom" constant="-62" id="Vqe-g3-4Yd"/>
+                            <constraint firstItem="bwE-Tn-FGj" firstAttribute="top" secondItem="mbN-TN-oBC" secondAttribute="bottom" constant="-40" id="Vqe-g3-4Yd"/>
                             <constraint firstAttribute="trailing" secondItem="bwE-Tn-FGj" secondAttribute="trailing" id="os3-Bh-r0m"/>
                         </constraints>
                     </view>
@@ -237,6 +237,7 @@
         <!--Web View Controller-->
         <scene sceneID="kFh-ck-JT8">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRE-N5-jV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="QmY-3d-XXF" customClass="WebViewController" customModule="GithubJobApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="51D-k5-dd5"/>
@@ -248,7 +249,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mRE-N5-jV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1974" y="321"/>
         </scene>

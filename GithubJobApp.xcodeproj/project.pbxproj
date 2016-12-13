@@ -19,8 +19,15 @@
 		34C7143C1DC8340100D707E8 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7143B1DC8340100D707E8 /* JobTableViewCell.swift */; };
 		34F2086D1DCE4CAA00ED88E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */; };
 		440744EE1DF60532008D0B61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440744ED1DF60532008D0B61 /* SearchViewController.swift */; };
+		4410C7841DFC9707004A5683 /* JobRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410C7831DFC9707004A5683 /* JobRealm.swift */; };
+		443F38FE1DFEFB3C00EC1609 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443F38FD1DFEFB3C00EC1609 /* RealmController.swift */; };
+		445A6B521DF9D05800E6EA95 /* TestBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445A6B511DF9D05800E6EA95 /* TestBoard.storyboard */; };
+		445A6B561DF9F41100E6EA95 /* Bookmarks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445A6B551DF9F41100E6EA95 /* Bookmarks.storyboard */; };
+		445A6B581DF9F5AF00E6EA95 /* JobDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445A6B571DF9F5AF00E6EA95 /* JobDetail.storyboard */; };
+		445A6B5A1DFA080100E6EA95 /* JobBookmarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A6B591DFA080100E6EA95 /* JobBookmarkTableViewController.swift */; };
 		446250131DF092F200E2EC42 /* UINetImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446250121DF092F200E2EC42 /* UINetImageView.swift */; };
 		449159C01DF8680D00F63A2A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449159BF1DF8680D00F63A2A /* Config.swift */; };
+		C10E8E5975F66380C6FF5FDE /* Pods_GithubJobApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8015CAF94C9C856DFFE491C5 /* Pods_GithubJobApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +66,18 @@
 		34C7143B1DC8340100D707E8 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		440744ED1DF60532008D0B61 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4410C7831DFC9707004A5683 /* JobRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobRealm.swift; sourceTree = "<group>"; };
+		4410C7851DFDED43004A5683 /* GithubJobApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GithubJobApp.entitlements; sourceTree = "<group>"; };
+		443F38FD1DFEFB3C00EC1609 /* RealmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
+		445A6B511DF9D05800E6EA95 /* TestBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TestBoard.storyboard; sourceTree = "<group>"; };
+		445A6B551DF9F41100E6EA95 /* Bookmarks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bookmarks.storyboard; sourceTree = "<group>"; };
+		445A6B571DF9F5AF00E6EA95 /* JobDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = JobDetail.storyboard; path = ../JobDetail.storyboard; sourceTree = "<group>"; };
+		445A6B591DFA080100E6EA95 /* JobBookmarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobBookmarkTableViewController.swift; sourceTree = "<group>"; };
 		446250121DF092F200E2EC42 /* UINetImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINetImageView.swift; sourceTree = "<group>"; };
 		449159BF1DF8680D00F63A2A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8015CAF94C9C856DFFE491C5 /* Pods_GithubJobApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubJobApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E92A413F59F3C6C3CE9D7AE8 /* Pods-GithubJobApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubJobApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GithubJobApp/Pods-GithubJobApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F6FA98221F66CF8AE1E1A3B7 /* Pods-GithubJobApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubJobApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GithubJobApp/Pods-GithubJobApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10E8E5975F66380C6FF5FDE /* Pods_GithubJobApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +113,8 @@
 				34C7141B1DC6E8F600D707E8 /* GithubJobAppTests */,
 				34C714261DC6E8F600D707E8 /* GithubJobAppUITests */,
 				34C714051DC6E8F600D707E8 /* Products */,
+				F62E5FF7CD205CC415407DE9 /* Pods */,
+				86576B0C75178F0AE90043E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,19 +131,26 @@
 		34C714061DC6E8F600D707E8 /* GithubJobApp */ = {
 			isa = PBXGroup;
 			children = (
+				4410C7851DFDED43004A5683 /* GithubJobApp.entitlements */,
 				34C714071DC6E8F600D707E8 /* AppDelegate.swift */,
 				34C7140B1DC6E8F600D707E8 /* Main.storyboard */,
 				34C7140E1DC6E8F600D707E8 /* Assets.xcassets */,
 				34C714101DC6E8F600D707E8 /* LaunchScreen.storyboard */,
 				34C714131DC6E8F600D707E8 /* Info.plist */,
 				449159BF1DF8680D00F63A2A /* Config.swift */,
+				445A6B511DF9D05800E6EA95 /* TestBoard.storyboard */,
 				34C714351DC6E90E00D707E8 /* GithubApiManager.swift */,
 				34C714371DC826A500D707E8 /* JobTableViewController.swift */,
+				445A6B551DF9F41100E6EA95 /* Bookmarks.storyboard */,
 				440744ED1DF60532008D0B61 /* SearchViewController.swift */,
 				34C714391DC826EE00D707E8 /* Job.swift */,
+				445A6B571DF9F5AF00E6EA95 /* JobDetail.storyboard */,
+				445A6B591DFA080100E6EA95 /* JobBookmarkTableViewController.swift */,
 				34F2086C1DCE4CAA00ED88E4 /* DetailViewController.swift */,
+				443F38FD1DFEFB3C00EC1609 /* RealmController.swift */,
 				34C7143B1DC8340100D707E8 /* JobTableViewCell.swift */,
 				446250121DF092F200E2EC42 /* UINetImageView.swift */,
+				4410C7831DFC9707004A5683 /* JobRealm.swift */,
 			);
 			path = GithubJobApp;
 			sourceTree = "<group>";
@@ -146,6 +173,23 @@
 			path = GithubJobAppUITests;
 			sourceTree = "<group>";
 		};
+		86576B0C75178F0AE90043E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8015CAF94C9C856DFFE491C5 /* Pods_GithubJobApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F62E5FF7CD205CC415407DE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E92A413F59F3C6C3CE9D7AE8 /* Pods-GithubJobApp.debug.xcconfig */,
+				F6FA98221F66CF8AE1E1A3B7 /* Pods-GithubJobApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34C7142C1DC6E8F600D707E8 /* Build configuration list for PBXNativeTarget "GithubJobApp" */;
 			buildPhases = (
+				D0466859D3911D14478299FF /* [CP] Check Pods Manifest.lock */,
 				34C714001DC6E8F600D707E8 /* Sources */,
 				34C714011DC6E8F600D707E8 /* Frameworks */,
 				34C714021DC6E8F600D707E8 /* Resources */,
+				B7C2ED6074754F231CD21D95 /* [CP] Embed Pods Frameworks */,
+				B2A25C7C6A925421B19972B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +263,11 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = XDMGL459YN;
 						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					34C714171DC6E8F600D707E8 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -257,6 +309,9 @@
 				34C714121DC6E8F600D707E8 /* LaunchScreen.storyboard in Resources */,
 				34C7140F1DC6E8F600D707E8 /* Assets.xcassets in Resources */,
 				34C7140D1DC6E8F600D707E8 /* Main.storyboard in Resources */,
+				445A6B581DF9F5AF00E6EA95 /* JobDetail.storyboard in Resources */,
+				445A6B521DF9D05800E6EA95 /* TestBoard.storyboard in Resources */,
+				445A6B561DF9F41100E6EA95 /* Bookmarks.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +331,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B2A25C7C6A925421B19972B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GithubJobApp/Pods-GithubJobApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7C2ED6074754F231CD21D95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GithubJobApp/Pods-GithubJobApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0466859D3911D14478299FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34C714001DC6E8F600D707E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -284,10 +387,13 @@
 				34C714381DC826A500D707E8 /* JobTableViewController.swift in Sources */,
 				446250131DF092F200E2EC42 /* UINetImageView.swift in Sources */,
 				449159C01DF8680D00F63A2A /* Config.swift in Sources */,
+				445A6B5A1DFA080100E6EA95 /* JobBookmarkTableViewController.swift in Sources */,
 				440744EE1DF60532008D0B61 /* SearchViewController.swift in Sources */,
 				34C714081DC6E8F600D707E8 /* AppDelegate.swift in Sources */,
 				34C7143C1DC8340100D707E8 /* JobTableViewCell.swift in Sources */,
+				4410C7841DFC9707004A5683 /* JobRealm.swift in Sources */,
 				34C714361DC6E90E00D707E8 /* GithubApiManager.swift in Sources */,
+				443F38FE1DFEFB3C00EC1609 /* RealmController.swift in Sources */,
 				34C7143A1DC826EE00D707E8 /* Job.swift in Sources */,
 				34F2086D1DCE4CAA00ED88E4 /* DetailViewController.swift in Sources */,
 			);
@@ -434,8 +540,10 @@
 		};
 		34C7142D1DC6E8F600D707E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E92A413F59F3C6C3CE9D7AE8 /* Pods-GithubJobApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GithubJobApp/GithubJobApp.entitlements;
 				DEVELOPMENT_TEAM = XDMGL459YN;
 				INFOPLIST_FILE = GithubJobApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -447,8 +555,10 @@
 		};
 		34C7142E1DC6E8F600D707E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6FA98221F66CF8AE1E1A3B7 /* Pods-GithubJobApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GithubJobApp/GithubJobApp.entitlements;
 				DEVELOPMENT_TEAM = XDMGL459YN;
 				INFOPLIST_FILE = GithubJobApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

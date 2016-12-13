@@ -17,22 +17,34 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var companyUrl: UILabel!
 
     var job: Job?
+    var jobRealm: JobRealm?
     var webViewController: WebViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let job = job else {
+//        guard let job = job else {
+//            return
+//        }
+//        
+//        company.text = job.company
+//        jobTitle.text = job.title
+//        companyUrl.text = job.rawCompanyUrl
+        
+        guard let jobRealm = jobRealm else {
             return
         }
         
-        company.text = job.company
-        jobTitle.text = job.title
-        companyUrl.text = job.rawCompanyUrl        
+        company.text = jobRealm.jobDescription
+        jobTitle.text = jobRealm.title
+        companyUrl.text = jobRealm.rawCompanyUrl
     }
     
     @IBAction func handleUrlClick(recognizer: UITapGestureRecognizer) {
         if let url = job?.companyUrl {
+            let svc = SFSafariViewController(URL: url)
+            self.presentViewController(svc, animated: true, completion: nil)
+        } else if let url = jobRealm?.companyUrl {
             let svc = SFSafariViewController(URL: url)
             self.presentViewController(svc, animated: true, completion: nil)
         }
@@ -41,7 +53,8 @@ class DetailViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let webViewController = segue.destinationViewController as? WebViewController {
             self.webViewController = webViewController
-            webViewController.job = self.job
+            print("segue to webview with job description dawg")
+            webViewController.jobRealm = self.jobRealm
         }
     }
 }
@@ -50,6 +63,7 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     var webView: WKWebView?
     var job: Job?
+    var jobRealm: JobRealm?
     
     override func loadView() {
         webView = WKWebView()
@@ -73,8 +87,8 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
     
     override func viewDidLoad() {
-        if let job = job {
-            webView?.loadHTMLString(job.jobDescription, baseURL: nil)
+        if let jobRealm = jobRealm {
+            webView?.loadHTMLString(jobRealm.jobDescription, baseURL: nil)
         }
     }
 }
