@@ -54,12 +54,6 @@ class JobBookmarkTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let detailViewController = segue.destinationViewController as! DetailViewController
         if let indexPath = tableView.indexPathForSelectedRow {
-            print("wheres my job description dawg")
-            if let result = jobResults?[indexPath.row] {
-                print("i gotchu a job dawg : \(result.jobDescription)")
-            } else {
-                print("no job for you")
-            }
             detailViewController.jobRealm = jobResults?[indexPath.row]
         }
     }

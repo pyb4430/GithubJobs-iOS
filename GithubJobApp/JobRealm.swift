@@ -39,6 +39,13 @@ class JobRealm: Object {
         self.rawCompanyUrl = json["company_url"].string
         self.id = json["id"].string ?? ""
     }
+    
+    func clone() -> JobRealm {
+        let jobRealmCopy = JobRealm(value: ["title": title, "jobDescription": jobDescription, "company": company, "id": id])
+        jobRealmCopy.rawCompanyLogoUrl = rawCompanyLogoUrl
+        jobRealmCopy.rawCompanyUrl = rawCompanyUrl
+        return jobRealmCopy
+    }
 }
 
 class JobViewHistory: Object {

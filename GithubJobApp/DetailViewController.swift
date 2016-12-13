@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let webViewController = segue.destinationViewController as? WebViewController {
             self.webViewController = webViewController
-            print("segue to webview with job description dawg")
+            print("segue to webview with job description")
             webViewController.jobRealm = self.jobRealm
         }
     }

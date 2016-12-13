@@ -73,10 +73,7 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
                 
                 do {
                     try realm.write {
-                        let jr = JobRealm(value: ["title": jobRealm.title, "jobDescription": jobRealm.jobDescription, "company": jobRealm.company, "id": jobRealm.id])
-                        jr.rawCompanyLogoUrl = jobRealm.rawCompanyLogoUrl
-                        jr.rawCompanyUrl = jobRealm.rawCompanyUrl
-                        realm.add(jr, update: true)
+                        realm.add(jobRealm.clone(), update: true)
                     }
                 } catch {
                     print("unable to save job in history")
