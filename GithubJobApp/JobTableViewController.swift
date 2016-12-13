@@ -32,7 +32,7 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
         
         loadJobsRealm() {jobs in
             if let jobs = jobs {
-                self.jobsRetrievedRealm(jobs)
+                self.jobsRetrievedRealm(jobs, shouldSave: false)
             }
             self.searchBar?.text = NSUserDefaults.standardUserDefaults().stringForKey(GithubApiManager.SearchQueryUserDefaultKey)
         }
@@ -82,10 +82,12 @@ class JobTableViewController: UITableViewController, GithubAPIDelegate, UISearch
         }
     }
     
-    func jobsRetrievedRealm(jobs: [JobRealm]) {
+    func jobsRetrievedRealm(jobs: [JobRealm], shouldSave: Bool) {
         jobArrayRealm = jobs
         tableView.reloadData()
-        saveJobsRealm()
+        if(shouldSave) {
+            saveJobsRealm()
+        }
     }
     
     func saveJobsRealm() {

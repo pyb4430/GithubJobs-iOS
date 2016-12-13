@@ -77,7 +77,7 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
                 let jobArrayRealm = jsonJobs.arrayValue.map({JobRealm(json: $0)})
             
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.delegate?.jobsRetrievedRealm(jobArrayRealm)
+                    self.delegate?.jobsRetrievedRealm(jobArrayRealm, shouldSave: true)
                 }
             }
             task.resume()
@@ -122,7 +122,7 @@ class GithubApiManager: NSObject, CLLocationManagerDelegate {
 }
 
 protocol GithubAPIDelegate {
-    func jobsRetrievedRealm(jobs: [JobRealm]) -> Void
+    func jobsRetrievedRealm(jobs: [JobRealm], shouldSave: Bool) -> Void
 }
 
 

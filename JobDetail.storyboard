@@ -58,7 +58,6 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MwE-DQ-3R7" firstAttribute="trailing" secondItem="uIP-PV-44v" secondAttribute="trailingMargin" id="0oX-K2-TEG"/>
-                            <constraint firstAttribute="trailing" secondItem="MwE-DQ-3R7" secondAttribute="trailing" constant="20" id="5GS-4c-Kkz"/>
                             <constraint firstItem="4fL-Ke-xfu" firstAttribute="top" secondItem="pMe-ak-EBR" secondAttribute="bottom" constant="5" id="6CB-J5-quy"/>
                             <constraint firstItem="dp0-L9-NDi" firstAttribute="trailing" secondItem="uIP-PV-44v" secondAttribute="trailingMargin" id="6ke-50-qPu"/>
                             <constraint firstAttribute="trailing" secondItem="pMe-ak-EBR" secondAttribute="trailing" constant="20" id="JcM-23-Tbg"/>
@@ -70,7 +69,6 @@
                             <constraint firstItem="dp0-L9-NDi" firstAttribute="top" secondItem="gVy-gN-ezf" secondAttribute="bottom" constant="8" id="qir-sM-KA5"/>
                             <constraint firstItem="dp0-L9-NDi" firstAttribute="leading" secondItem="uIP-PV-44v" secondAttribute="leading" constant="20" id="vdd-l8-uVO"/>
                             <constraint firstItem="MwE-DQ-3R7" firstAttribute="top" secondItem="dcI-CX-gQU" secondAttribute="bottom" constant="18" id="x1p-RB-4wC"/>
-                            <constraint firstAttribute="trailing" secondItem="gVy-gN-ezf" secondAttribute="trailing" constant="20" id="xMp-E6-09L"/>
                             <constraint firstItem="MwE-DQ-3R7" firstAttribute="leading" secondItem="uIP-PV-44v" secondAttribute="leading" constant="20" id="y2D-Gk-SQZ"/>
                         </constraints>
                     </view>

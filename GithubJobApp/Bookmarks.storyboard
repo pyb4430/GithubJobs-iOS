@@ -38,13 +38,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTR-m7-nEP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTR-m7-nEP">
                                 <rect key="frame" x="20" y="82" width="339" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G17-FD-30l">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G17-FD-30l">
                                 <rect key="frame" x="20" y="111" width="339" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,7 +76,6 @@
                             <constraint firstItem="JM6-Mh-5cH" firstAttribute="top" secondItem="40V-ds-nec" secondAttribute="bottom" constant="8" id="4gc-7i-MZG"/>
                             <constraint firstItem="40V-ds-nec" firstAttribute="trailing" secondItem="n12-sY-KNg" secondAttribute="trailingMargin" id="7ZE-cD-F5i"/>
                             <constraint firstItem="JM6-Mh-5cH" firstAttribute="leading" secondItem="n12-sY-KNg" secondAttribute="leading" constant="20" id="9XX-TT-f2m"/>
-                            <constraint firstAttribute="trailing" secondItem="G17-FD-30l" secondAttribute="trailing" constant="20" id="DAI-Zk-MO7"/>
                             <constraint firstItem="wTR-m7-nEP" firstAttribute="trailing" secondItem="n12-sY-KNg" secondAttribute="trailingMargin" id="FtK-B3-fT7"/>
                             <constraint firstItem="40V-ds-nec" firstAttribute="top" secondItem="G17-FD-30l" secondAttribute="bottom" constant="8" id="H60-Nb-nuK"/>
                             <constraint firstItem="G17-FD-30l" firstAttribute="trailing" secondItem="n12-sY-KNg" secondAttribute="trailingMargin" id="JEK-rL-U9O"/>
@@ -85,7 +84,6 @@
                             <constraint firstItem="G17-FD-30l" firstAttribute="top" secondItem="wTR-m7-nEP" secondAttribute="bottom" constant="8" id="bRL-dT-wWo"/>
                             <constraint firstItem="40V-ds-nec" firstAttribute="leading" secondItem="n12-sY-KNg" secondAttribute="leading" constant="20" id="cbB-2v-LeQ"/>
                             <constraint firstItem="x1s-0i-OeZ" firstAttribute="top" secondItem="JM6-Mh-5cH" secondAttribute="bottom" constant="5" id="oFi-g7-lWe"/>
-                            <constraint firstAttribute="trailing" secondItem="wTR-m7-nEP" secondAttribute="trailing" constant="20" id="unM-Dv-7jj"/>
                             <constraint firstAttribute="trailing" secondItem="JM6-Mh-5cH" secondAttribute="trailing" constant="20" id="ySw-Wr-XXk"/>
                             <constraint firstItem="G17-FD-30l" firstAttribute="leading" secondItem="n12-sY-KNg" secondAttribute="leading" constant="20" id="yfx-iT-TUQ"/>
                         </constraints>

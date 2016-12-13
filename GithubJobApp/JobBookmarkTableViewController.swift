@@ -52,8 +52,7 @@ class JobBookmarkTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let detailViewController = segue.destinationViewController as! DetailViewController
-        if let indexPath = tableView.indexPathForSelectedRow {
+        if let detailViewController = segue.destinationViewController as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow {
             detailViewController.jobRealm = jobResults?[indexPath.row]
         }
     }
